@@ -1,0 +1,39 @@
+@import "../../../../styles/mixins";
+
+.ListItem {
+  width: 100%;
+}
+
+.Link {
+  text-decoration: none;
+  color: var(--c-font);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.InfoBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-left: 0.5rem;
+}
+
+.ChatHeading,
+.LastMessage {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  flex: 1;
+}
+
+.ChatHeading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.LastMessage {
+  font-size: 1.6rem;
+}

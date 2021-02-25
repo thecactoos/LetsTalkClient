@@ -1,0 +1,48 @@
+import React from "react";
+import { Redirect } from "react-router-dom";
+
+// Components
+import Messages from "../../../components/Messages/Messages";
+import SendMessageForm from "../../../components/SendMessageForm/SendMessageForm";
+import ConversationBar from "../../../components/ConversationBar/ConversationBar";
+
+// Routes
+import {
+  CONVERSATION_WITHOUT_ID,
+  NEW_CONVERSATION,
+} from "../../../consts/routes";
+
+// Hooks
+import useDirectMessageFrom from "./useDirectMessageForm";
+
+// Styles
+import classes from "./DirectMessageForm.module.scss";
+
+function DirectMessageForm() {
+  const {
+    receivers,
+    headingString,
+    createConversationHandler,
+    messages,
+    conversation,
+    avatar,
+  } = useDirectMessageFrom();
+
+  if (conversation) {
+    return <Redirect to={`CONVERSATION_WITHOUT_ID${conversation._id}`} />;
+  }
+
+  if (receivers.length === 0) {
+    return <Redirect to={NEW_CONVERSATION} />;
+  }
+
+  return (
+    <section className={classes.Section}>
+      <ConversationBar headingString={headingString} avatar={avatar} />
+      <Messages messages={messages} members={receivers} />
+      <SendMessageForm submitHandler={createConversationHandler} />
+    </section>
+  );
+}
+
+export default DirectMessageForm;

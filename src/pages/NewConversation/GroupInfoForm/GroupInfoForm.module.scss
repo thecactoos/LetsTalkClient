@@ -1,0 +1,131 @@
+@import "../../../styles/mixins";
+
+.Section {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content 1fr;
+  column-gap: 1.5rem;
+  grid-template-areas:
+    "btn heading"
+    "form form";
+}
+
+.BtnBack {
+  grid-area: btn;
+}
+
+.Heading {
+  grid-area: heading;
+  display: flex;
+  flex-direction: column;
+  @include desktop {
+    display: none;
+  }
+
+  &Main {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    margin-bottom: 0.2rem;
+  }
+
+  &Secondary {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+}
+
+.Circle {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  background-color: red;
+  margin-right: 1rem;
+}
+
+.Form {
+  grid-area: form;
+  padding: 1rem;
+  display: grid;
+  // background: rgb(50, 50, 50);
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content min-content min-content;
+  border-bottom: 1px solid var(--c-border-main);
+}
+
+.Input {
+  align-self: center;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  font-size: 2rem;
+  padding: 0.5rem 0.5rem;
+  color: var(--c-font);
+  width: 100%;
+}
+
+.Comment {
+  margin-top: 1rem;
+  grid-column: 1 / -1;
+  font-size: 1.3rem;
+}
+
+.GroupAvatarLabel {
+  height: 6rem;
+  width: 6rem;
+  border: none;
+  border-radius: 100%;
+  background-color: rgba(50, 50, 50, 0.7);
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  // overflow: hidden;
+}
+
+.GroupAvatarInput {
+  display: none;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  border: none;
+}
+
+.GroupAvatarPreview {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  object-fit: cover;
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+.BtnCreate {
+  width: 5rem;
+  height: 5rem;
+  position: fixed;
+  right: 5vw;
+  bottom: 5vw;
+  border: none;
+  border-radius: 100%;
+  background-color: var(--c-bg-link);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+
+  &Svg {
+    height: 80%;
+    fill: var(--c-font);
+  }
+}
+
+.LoaderIsCreating {
+  width: 5rem;
+  height: 5rem;
+  position: fixed;
+  right: 5vw;
+  bottom: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+}

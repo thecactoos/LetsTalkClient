@@ -1,0 +1,13 @@
+@import "../../styles/scrollbar";
+
+.Messages {
+  display: grid;
+  overflow-y: auto;
+  grid-row: 2 / 3;
+  grid-template-columns: 1rem 2fr 5fr 2fr 1rem;
+  align-content: start;
+  list-style: none;
+  padding-top: 1rem;
+
+  @include withCustomScrollbar;
+}

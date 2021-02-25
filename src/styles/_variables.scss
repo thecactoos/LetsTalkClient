@@ -1,0 +1,32 @@
+:root {
+  --c-background-dark: rgb(22, 22, 22);
+
+  --c-msg-bg: #373737;
+
+  --c-background: var(--c-background-dark);
+  // test
+  --c-background: rgb(10, 10, 10);
+  --c-background-secondary: var(--c-background-dark-secondary);
+  --c-font: rgb(255, 255, 255);
+
+  // Inputs Auth
+  --c-inputAuth-bg: rgb(0, 0, 0);
+  --c-inputAuth-border: rgba(230, 230, 230, 0.15);
+  --c-inputAuth-shadow: rgb(133, 133, 133);
+  --c-inputAuth-shadow-focus: rgba(32, 33, 105, 0.7);
+  --c-inputAuth-shadow-valid: rgb(70, 255, 24);
+
+  // Btn Sign
+  --c-btn-sign: rgb(50, 148, 26);
+  --c-btn-XD: rgb(66, 189, 35);
+
+  // Borders
+  --c-border-main: rgb(240, 240, 240);
+
+  --c-img-bg-default: rgb(255, 255, 255);
+
+  --c-bg-profile-top: rgb(34, 36, 44);
+  --c-bg-profile-bottom: rgb(26, 27, 33);
+  --c-font-darker: rgb(214, 211, 211);
+  --c-bg-link: rgb(138, 193, 133);
+}

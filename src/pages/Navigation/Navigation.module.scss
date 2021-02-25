@@ -1,0 +1,99 @@
+@import "../../styles/mixins";
+@import "../../styles/scrollbar";
+
+.Navigation {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}
+
+.NavigationTop {
+  display: flex;
+  flex-direction: column;
+
+  &Header {
+    display: flex;
+    padding: 0.6rem 0.9rem;
+    align-items: center;
+  }
+}
+
+.BtnUser {
+  background-color: transparent;
+  border: none;
+  background-color: #373737;
+  border-radius: 100%;
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.8rem;
+}
+
+.LogoutSvg {
+  transform: rotate(180deg);
+  height: 2.5rem;
+  fill: var(--c-font);
+}
+
+.ScrollWrapper {
+  overflow-y: auto;
+  @include withCustomScrollbar;
+}
+
+.CreateNewChat {
+  &Link {
+    margin-left: auto;
+    height: 3.8rem;
+    width: 3.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background-color: rgb(49, 49, 49);
+  }
+
+  &Icon {
+    fill: var(--c-font);
+    height: 2.3rem;
+  }
+}
+
+.LoaderWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.BtnSearchMode {
+  font-family: inherit;
+  font-size: 1.6rem;
+  padding: 0.9rem 1.7rem;
+  background-color: #373737;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 100px;
+  width: 100%;
+  text-align: left;
+}
+
+.SearchFormWrapper {
+  display: flex;
+  margin: 0 0.5rem;
+}
+
+.BtnCloseSearch {
+  background-color: transparent;
+  border: none;
+  width: 4.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &Icon {
+    height: 2rem;
+    fill: var(--c-font);
+  }
+}

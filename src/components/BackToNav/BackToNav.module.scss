@@ -1,0 +1,20 @@
+@import "../../styles/mixins";
+
+.BackToNav {
+  &Link {
+    height: 4rem;
+    width: 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &Icon {
+    fill: var(--c-font);
+    height: 2.5rem;
+  }
+}

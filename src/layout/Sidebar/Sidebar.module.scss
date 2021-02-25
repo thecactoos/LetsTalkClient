@@ -1,0 +1,18 @@
+@import "../../styles/mixins";
+
+.Sidebar {
+  display: none;
+
+  @include desktop {
+    grid-column: 1 / 2;
+    height: 100%;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    border-right: 1px solid rgb(145, 144, 144);
+  }
+
+  &Children {
+    grid-row: 2 / 3;
+    overflow: hidden;
+  }
+}
