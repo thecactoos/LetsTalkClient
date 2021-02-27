@@ -1,8 +1,9 @@
-import { take, fork, call, put, takeEvery } from "redux-saga/effects";
+import { take, fork, call, put, takeEvery, race } from "redux-saga/effects";
 import { eventChannel } from "redux-saga";
 import * as actionTypes from "../actions/chats-action-types";
 import * as actions from "../actions/chats-actions";
 import * as socketTypes from "../consts/socketTypes";
+
 import createSocketConnection from "../utils/createSocketConnection";
 
 // Sagas
@@ -13,25 +14,11 @@ import sendMessageFlow from "./send-message-saga";
 import newConversationSaga from "./new-conversation-saga";
 import getConversationSaga from "./get-conversation-saga";
 import profileFormSaga from "./profile-form-saga";
-import { AUTH_SUCCESS } from "../actions/auth-action-types";
-
-// Testing purposes
-function* watchAll() {
-  while (true) {
-    const action = yield take("*");
-    // eslint-disable-next-line no-console
-    console.log("Action from redux-saga", action);
-  }
-}
+import { LOGOUT } from "../actions/auth-action-types";
 
 function createSocketChannel(socket) {
   return eventChannel((emit) => {
-    const errorHandler = (errorEvent) => {
-      emit(new Error(errorEvent.reason));
-    };
-
     const receiveMessageHandler = (payload) => {
-      console.log(payload);
       emit(actions.receiveMessage(payload));
     };
 
@@ -39,24 +26,13 @@ function createSocketChannel(socket) {
       emit(actions.receiveNewConversation(payload));
     };
 
-    const getAuthenticatedUser = (payload) => {
-      emit({
-        type: AUTH_SUCCESS,
-        payload,
-      });
-    };
-
-    // Testing
-    socket.on("lala", (data) => {
-      console.log(data);
-    });
-
-    socket.on(socketTypes.GET_AUTHENTICATED_USER, getAuthenticatedUser);
     socket.on(socketTypes.NEW_CONVERSATION, newConversationHandler);
     socket.on(socketTypes.RECEIVE_MESSAGE, receiveMessageHandler);
-    socket.on("error", errorHandler);
 
-    const unsubscribe = () => {};
+    const unsubscribe = () => {
+      socket.off(socketTypes.NEW_CONVERSATION, newConversationHandler);
+      socket.off(socketTypes.RECEIVE_MESSAGE, receiveMessageHandler);
+    };
 
     return unsubscribe;
   });
@@ -68,11 +44,21 @@ function* dispatchSocketAction(socketChannel) {
   });
 }
 
-function* watchAllSocketAction() {
-  const { payload } = yield take(actionTypes.SOCKET_INIT);
-  const socket = yield call(createSocketConnection);
-  const socketChannel = yield call(createSocketChannel, socket);
-  if (socket && socketChannel) yield put(actions.socketSuccess());
+function* socketSetup() {
+  try {
+    const socket = yield call(createSocketConnection);
+    const socketChannel = yield call(createSocketChannel, socket);
+    yield put(actions.socketSuccess());
+    return {
+      socket,
+      socketChannel,
+    };
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function* allActions(socket, socketChannel) {
   yield fork(dispatchSocketAction, socketChannel);
   yield fork(getChatsSaga, socket);
   yield fork(navigation, socket);
@@ -83,7 +69,24 @@ function* watchAllSocketAction() {
   yield fork(profileFormSaga, socket);
 }
 
+function* watchAllActions() {
+  while (true) {
+    yield take(actionTypes.SOCKET_INIT);
+    const { socketConnection } = yield race({
+      socketConnection: call(socketSetup),
+      logout: take(LOGOUT),
+    });
+
+    if (socketConnection) {
+      const { socket, socketChannel } = socketConnection;
+      yield fork(allActions, socket, socketChannel);
+      yield take(LOGOUT);
+      socketChannel.close();
+      socket.disconnect();
+    }
+  }
+}
+
 export default function* rootSaga() {
-  // yield fork(watchAll);
-  yield fork(watchAllSocketAction);
+  yield fork(watchAllActions);
 }
