@@ -77,19 +77,23 @@ const SignUp = () => {
           type="text"
           name="username"
           labelText="Username"
+          /* eslint-disable-next-line react/jsx-props-no-spreading */
           {...bindUsername}
         />
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Input type="email" name="email" labelText="Email" {...bindEmail} />
         <Input
           type="password"
           name="password"
           labelText="Password"
+          // eslint-disable-next-line react/jsx-props-no-spreading
           {...bindPassword}
         />
         <Input
           type="password"
           name="passwordConfirm"
           labelText="Confirm Password"
+          // eslint-disable-next-line react/jsx-props-no-spreading
           {...bindPasswordConf}
         />
         {isLoadingSign ? <Spinner /> : <Button>Sign Up</Button>}

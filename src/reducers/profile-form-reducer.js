@@ -29,9 +29,9 @@ export default (state = initialState, { type, payload }) => {
     case AUTH_SUCCESS: {
       const { username, bio, avatar } = payload;
       return {
-        username: username,
-        bio: bio,
-        avatar: avatar,
+        username,
+        bio,
+        avatar,
       };
     }
     case SET_BIO:

@@ -83,10 +83,7 @@ function* createNewConversationGroupSaga(socket, actionRequest) {
   } = yield actionRequest;
 
   const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    // withCredentials: true,
+    withCredentials: true,
   };
 
   const receivers = yield select((state) => state.newconversation.receivers);
@@ -103,7 +100,8 @@ function* createNewConversationGroupSaga(socket, actionRequest) {
     const { data: conversation } = yield call(
       axios.post,
       "/api/conversation",
-      formData
+      formData,
+      config
     );
     yield put(actions.createNewGroupConversationSuccess(conversation));
   } catch (error) {

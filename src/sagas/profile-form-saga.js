@@ -48,22 +48,18 @@ function* createNewConversationGroupSaga() {
   while (true) {
     const { payload } = yield take(actions.updateAvatarRequest().type);
 
-    console.log(payload);
     const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // withCredentials: true,
+      withCredentials: true,
     };
 
     const formData = new FormData();
     formData.append("file", payload);
 
     try {
-      const { data } = yield call(axios.put, "/api/profile", formData);
+      const { data } = yield call(axios.put, "/api/profile", formData, config);
 
       yield console.log(data);
-      // yield put(actions.updateAvatarSuccess(conversation));
+      yield put(actions.updateAvatarSuccess(data));
     } catch (error) {
       // console.log(error.message);
       yield put(actions.updateAvatarFail(error));

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Redirect, Switch, Route, useHistory } from "react-router-dom";
+import { Redirect, Switch, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 
@@ -23,7 +23,6 @@ import {
 import { clearNewConversation } from "../../actions/newconversation-actions";
 
 function NewConversation() {
-  const history = useHistory();
   const dispatch = useDispatch();
   const conversation = useSelector(
     (state) => state.newconversation.conversation
@@ -39,10 +38,9 @@ function NewConversation() {
         dispatch(clearNewConversation());
       }
     };
-  }, []);
+  }, [dispatch, conversation]);
 
   if (conversation) {
-    console.log("Change");
     return <Redirect to={`${CONVERSATION_WITHOUT_ID}${conversation._id}`} />;
   }
 

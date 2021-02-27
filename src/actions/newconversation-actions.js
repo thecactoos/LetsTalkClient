@@ -67,7 +67,7 @@ export const createNewConversationSuccess = (
   payload: {
     conversationId: conversation._id,
     messageId: conversation.messages[0]._id,
-    conversation: conversation,
+    conversation,
     tempMessageId,
     tempConversationId,
   },

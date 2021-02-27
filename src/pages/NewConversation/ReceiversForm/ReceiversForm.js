@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 // Components
@@ -15,10 +15,7 @@ import { ReactComponent as NextSVG } from "../../../assets/right-arrow.svg";
 import useReceiversForm from "./useReceiversForm";
 
 // Routes
-import {
-  NEW_CONVERSATION,
-  NEW_CONVERSATION_GROUP_INFO,
-} from "../../../consts/routes";
+import { NEW_CONVERSATION_GROUP_INFO } from "../../../consts/routes";
 
 // Styles
 import classes from "./ReceiversForm.module.scss";
@@ -31,7 +28,6 @@ function ReceiversForm({ isDm }) {
     clearSearchValue,
     handleSearchChange,
     handleSearchDebounce,
-    handleSearchSubmit,
     filteredResult: filteredUsers,
     suggestedResult: suggestedUsers,
     showLoader,
@@ -71,7 +67,6 @@ function ReceiversForm({ isDm }) {
               receivers.length !== 0 &&
               receivers.map(({ username, id: receiverId, avatar }) => (
                 <Receiver
-                  avatar=""
                   isReceiver
                   key={receiverId}
                   avatar={avatar}
@@ -122,7 +117,7 @@ function ReceiversForm({ isDm }) {
                 from: location.pathname,
               });
             }}
-            type="btn"
+            type="button"
           >
             <NextSVG className={classes.BtnNextSvg} />
           </button>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import BackToNav from "../../../components/BackToNav/BackToNav";
 // Hooks
 import useGroupInfoForm from "./useGroupInfoFrom";
@@ -6,7 +7,6 @@ import { ReactComponent as CreateSVG } from "../../../assets/usersadded.svg";
 
 // Styles
 import classes from "./GroupInfoForm.module.scss";
-import { Redirect } from "react-router-dom";
 import { NEW_CONVERSATION_GROUP_RECEIVERS } from "../../../consts/routes";
 import Spinner from "../../../layout/Spinner/Spinner";
 
@@ -55,8 +55,9 @@ function NewConversationGroup() {
           className={classes.Input}
           placeholder="Type chat name"
           value={chatName}
+          id="groupname"
         />
-        <label className={classes.Comment}>
+        <label className={classes.Comment} htmlFor="groupname">
           Provide a group subject and optional group icon
         </label>
         {isCreating ? (

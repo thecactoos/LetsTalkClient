@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
-import { setReceiverDm } from "../../../actions/newconversation-actions";
-import { NEW_CONVERSATION_DM_CONVERSATION } from "../../../consts/routes";
 import {
+  setReceiverDm,
   searchReceiverRequest,
   addReceiver,
   removeReceiver,
 } from "../../../actions/newconversation-actions";
+import { NEW_CONVERSATION_DM_CONVERSATION } from "../../../consts/routes";
+
 import useSearchInput from "../../../hooks/useSearchInput";
 
 const useReceiversForm = (isDm) => {
@@ -40,7 +41,6 @@ const useReceiversForm = (isDm) => {
   };
 
   const handleAddReceiver = (id, username, avatar) => {
-    console.log(id, username, avatar);
     dispatch(addReceiver(id, username, avatar));
     focusSearchInput();
     clearSearchValue();

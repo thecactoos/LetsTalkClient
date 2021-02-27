@@ -1,11 +1,11 @@
 import React from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { HOME } from "../../consts/routes";
 import classes from "./BackToNav.module.scss";
 import { ReactComponent as BackArrow } from "../../assets/arrow-left.svg";
 
-function BackToNav(pathname) {
+function BackToNav() {
   const location = useLocation();
 
   return (

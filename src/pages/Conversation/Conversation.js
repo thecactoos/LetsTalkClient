@@ -1,5 +1,4 @@
 import React from "react";
-import { Route, Switch, useParams, useRouteMatch } from "react-router-dom";
 import ConversationBar from "../../components/ConversationBar/ConversationBar";
 
 // Components

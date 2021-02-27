@@ -43,6 +43,7 @@ const useProfileForm = () => {
     const objectUrl = URL.createObjectURL(avatar);
     setPreview(objectUrl);
 
+    // eslint-disable-next-line consistent-return
     return () => URL.revokeObjectURL(objectUrl);
   }, [avatar]);
 

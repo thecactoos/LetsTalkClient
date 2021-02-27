@@ -8,7 +8,9 @@ const Receiver = React.memo(({ username, handleChange, avatar }) => {
   return (
     <div className={classes.Receiver}>
       <UserImg avatarUrl={avatar} small />
-      <label className={classes.Username}>{username}</label>
+      <label className={classes.Username} htmlFor={username}>
+        {username}
+      </label>
       <button
         className={classes.RemoveBtn}
         onClick={handleChange}

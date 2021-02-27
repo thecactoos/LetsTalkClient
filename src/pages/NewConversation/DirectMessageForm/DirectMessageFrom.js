@@ -7,10 +7,7 @@ import SendMessageForm from "../../../components/SendMessageForm/SendMessageForm
 import ConversationBar from "../../../components/ConversationBar/ConversationBar";
 
 // Routes
-import {
-  CONVERSATION_WITHOUT_ID,
-  NEW_CONVERSATION,
-} from "../../../consts/routes";
+import { NEW_CONVERSATION } from "../../../consts/routes";
 
 // Hooks
 import useDirectMessageFrom from "./useDirectMessageForm";

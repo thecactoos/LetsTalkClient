@@ -35,14 +35,14 @@ const useNavigation = () => {
 
   useEffect(() => {
     if (searchValue.length === 0) {
-      const suggested = chats.reduce((users, chat) => {
+      const suggestedUsers = chats.reduce((users, chat) => {
         const isFounded = chat.members.filter(
           (member) => !users.map((user) => user._id).includes(member._id)
         );
         if (isFounded.length !== 0) return [...users, ...isFounded];
         return users;
       }, []);
-      setSuggested(suggested);
+      setSuggested(suggestedUsers);
     }
   }, [chats, searchValue.length]);
 

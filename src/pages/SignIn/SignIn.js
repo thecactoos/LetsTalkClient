@@ -42,13 +42,8 @@ const SignIn = () => {
     dispatch(signIn(valueEmail, valuePassword));
   };
 
-  // Redirect when user is authenticated
-  // if (isAuthenticated) {
-  //   return <Redirect to={HOME} />;
-  // }
-
   return (
-    <section className={classes.Section} onSubmit={(e) => handleSubmit(e)}>
+    <section className={classes.Section} onSubmit={handleSubmit}>
       <h2
         className={`${classes.Heading} ${
           errors.length !== 0 && classes.HeadingWithError
@@ -58,14 +53,15 @@ const SignIn = () => {
       </h2>
       {errors.length !== 0 && <ErrorMessage msg={errors[0].msg} />}
       <form className={classes.Form}>
+        {/*  eslint-disable-next-line react/jsx-props-no-spreading */}
         <Input type="email" name="email" labelText="Email" {...bindEmail} />
         <Input
           type="password"
           name="password"
           labelText="Password"
+          /* eslint-disable-next-line react/jsx-props-no-spreading */
           {...bindPassword}
         />
-
         {isLoadingSign ? <Spinner /> : <Button>Sign In</Button>}
       </form>
       <p className={classes.ParagraphAuthSwitch}>

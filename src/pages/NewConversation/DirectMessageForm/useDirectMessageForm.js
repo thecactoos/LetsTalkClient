@@ -32,7 +32,6 @@ const useDirectMessageFrom = () => {
     createConversationHandler,
     isCreating,
     conversation,
-    createConversationHandler,
   };
 };
 

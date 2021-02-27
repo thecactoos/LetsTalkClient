@@ -39,12 +39,13 @@ function ProfileForm() {
           <img
             src={preview || currentAvatar}
             className={classes.AvatarImgCur}
+            alt="Your avatar"
           />
-          }
         </label>
         {preview && (
           <button
             className={`${classes.BtnUpdate} ${classes.BtnUpdate__Avatar}`}
+            type="submit"
           >
             <TickMarkSVG className={classes.TickMarkSvg} />
           </button>
@@ -63,7 +64,7 @@ function ProfileForm() {
           Username
         </label>
         {showBtnUsername && (
-          <button className={classes.BtnUpdate}>
+          <button className={classes.BtnUpdate} type="submit">
             <TickMarkSVG className={classes.TickMarkSvg} />
           </button>
         )}
@@ -81,7 +82,7 @@ function ProfileForm() {
           onChange={handleChangeText}
         />
         {showBtnBio && (
-          <button className={classes.BtnUpdate}>
+          <button className={classes.BtnUpdate} type="submit">
             <TickMarkSVG className={classes.TickMarkSvg} />
           </button>
         )}

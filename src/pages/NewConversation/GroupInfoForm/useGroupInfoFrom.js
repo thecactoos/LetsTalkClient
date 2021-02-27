@@ -35,6 +35,7 @@ const useGroupInfoForm = () => {
     const objectUrl = URL.createObjectURL(avatarGroup);
     setPreview(objectUrl);
 
+    // eslint-disable-next-line consistent-return
     return () => URL.revokeObjectURL(objectUrl);
   }, [avatarGroup]);
 

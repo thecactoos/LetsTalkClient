@@ -14,10 +14,6 @@ import { PROFILE_USER_WITHOUT_ID } from "../../../consts/routes";
 // Styles
 import classes from "./SearchReceiversItem.module.scss";
 
-const isReceiver = (id, receivers) =>
-  receivers.map((receiver) => receiver.id).includes(id);
-
-// SearchReceiverItem
 function Receiver({ username, id, isReceiver, handleChange, avatar }) {
   const location = useLocation();
   return (
