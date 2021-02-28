@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
+
+// Components
 import Message from "./Message/Message";
+
+// Styles
 import classes from "./Messages.module.scss";
 
 function Messages({ messages, members }) {

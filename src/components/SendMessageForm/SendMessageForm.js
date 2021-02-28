@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
-// Style
+// Styles
 import classes from "./SendMessageForm.module.scss";
 
 function SendMessageForm({ submitHandler }) {

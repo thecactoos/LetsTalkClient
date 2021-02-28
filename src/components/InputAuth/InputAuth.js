@@ -1,4 +1,6 @@
 import React from "react";
+
+// Styles
 import classes from "./InputAuth.module.scss";
 
 const Input = ({ value, isValid, type, changed, name, labelText }) => {

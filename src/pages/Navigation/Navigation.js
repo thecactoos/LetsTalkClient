@@ -12,7 +12,7 @@ import Chats from "./Chats/Chats";
 import Users from "./Users/Users";
 import SearchForm from "../../components/SearchUserForm/SearchUserForm";
 
-// actions
+// Actions
 import { logout } from "../../actions/auth-actions";
 
 // Components

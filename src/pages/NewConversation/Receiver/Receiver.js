@@ -1,7 +1,10 @@
 import React from "react";
 
+// Components
 import { ReactComponent as IconDelete } from "../../../assets/x.svg";
 import UserImg from "../../../components/UserImg/UserImg";
+
+// Styles
 import classes from "./Receiver.module.scss";
 
 const Receiver = React.memo(({ username, handleChange, avatar }) => {

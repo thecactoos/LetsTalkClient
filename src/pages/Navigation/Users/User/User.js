@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 // Components
 import UserImg from "../../../../components/UserImg/UserImg";
 
-// Consts
+// Routes
 import { PROFILE_USER_WITHOUT_ID } from "../../../../consts/routes";
 
 // Styles

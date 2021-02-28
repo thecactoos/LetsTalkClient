@@ -1,5 +1,6 @@
 import React from "react";
 
+// Assets
 import { ReactComponent as Reset } from "../../assets/x.svg";
 
 import classes from "./SearchUserForm.module.scss";
