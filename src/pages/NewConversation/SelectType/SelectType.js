@@ -1,5 +1,9 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+
+// Components
+import BackLink from "../../../components/BackLink/BackLink";
+
 // Routes
 import {
   NEW_CONVERSATION_GROUP_RECEIVERS,
@@ -8,8 +12,6 @@ import {
 // Assets
 import { ReactComponent as NewGroupSVG } from "../../../assets/group.svg";
 import { ReactComponent as NewDMSVG } from "../../../assets/plane.svg";
-// Components
-import BackToNav from "../../../components/BackToNav/BackToNav";
 
 // Styles
 import classes from "./SelectType.module.scss";
@@ -18,7 +20,7 @@ function NewConversationSelectType() {
   const location = useLocation();
   return (
     <section className={classes.SelectType}>
-      <BackToNav className={classes.Btn} />
+      <BackLink className={classes.Btn} />
       <h3 className={classes.BarHeading}>Select type</h3>
       <Link
         className={`${classes.ConversationTypeLink} ${classes.Group}`}

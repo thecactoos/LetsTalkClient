@@ -1,10 +1,16 @@
 import React from "react";
-import useProfileForm from "./useProfileForm";
-import BackToNav from "../../components/BackToNav/BackToNav";
 
+// Components
+import BackLink from "../../components/BackLink/BackLink";
+
+// Assets
 import { ReactComponent as TickMarkSVG } from "../../assets/tick-mark.svg";
 import { ReactComponent as CameraSVG } from "../../assets/camera.svg";
 
+// Hooks
+import useProfileForm from "./useProfileForm";
+
+// Styles
 import classes from "./ProfileForm.module.scss";
 
 function ProfileForm() {
@@ -24,7 +30,7 @@ function ProfileForm() {
   return (
     <section className={classes.Section}>
       <div className={classes.BackLinkWrapper}>
-        <BackToNav />
+        <BackLink />
       </div>
       <form onSubmit={updateAvatarHandler} className={classes.AvatarForm}>
         <label htmlFor="avatar" className={classes.AvatarLabel}>

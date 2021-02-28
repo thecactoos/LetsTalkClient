@@ -1,6 +1,10 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import BackToNav from "../../../components/BackToNav/BackToNav";
+
+// Components
+import Spinner from "../../../layout/Spinner/Spinner";
+import BackLink from "../../../components/BackLink/BackLink";
+
 // Hooks
 import useGroupInfoForm from "./useGroupInfoFrom";
 import { ReactComponent as CreateSVG } from "../../../assets/usersadded.svg";
@@ -8,9 +12,8 @@ import { ReactComponent as CreateSVG } from "../../../assets/usersadded.svg";
 // Styles
 import classes from "./GroupInfoForm.module.scss";
 import { NEW_CONVERSATION_GROUP_RECEIVERS } from "../../../consts/routes";
-import Spinner from "../../../layout/Spinner/Spinner";
 
-function NewConversationGroup() {
+function GroupInfoForm() {
   const {
     chatName,
     handleChatName,
@@ -27,7 +30,7 @@ function NewConversationGroup() {
 
   return (
     <div className={classes.Section}>
-      <BackToNav className={classes.BtnBack} />
+      <BackLink className={classes.BtnBack} />
       <h2 className={classes.Heading}>
         <span className={classes.HeadingMain}>New group</span>
         <span className={classes.HeadingSecondary}>Add chat name</span>
@@ -74,4 +77,4 @@ function NewConversationGroup() {
   );
 }
 
-export default NewConversationGroup;
+export default GroupInfoForm;

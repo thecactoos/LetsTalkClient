@@ -1,4 +1,6 @@
 import React from "react";
+
+// Styles
 import classes from "./SearchReceiversInputDesktop.module.scss";
 
 const SearchReceiversaInputDesktop = ({

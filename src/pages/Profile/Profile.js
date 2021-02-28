@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import BackToNav from "../../components/BackToNav/BackToNav";
-import useProfile from "./useProfile";
 
+// Hooks
+import BackLink from "../../components/BackLink/BackLink";
+
+// Assets
 import { ReactComponent as Plane } from "../../assets/plane.svg";
 import { ReactComponent as Group } from "../../assets/usersadded.svg";
 
@@ -12,6 +14,9 @@ import {
   NEW_CONVERSATION_DM_RECEIVER,
   NEW_CONVERSATION_GROUP_RECEIVERS,
 } from "../../consts/routes";
+
+// Hooks
+import useProfile from "./useProfile";
 
 // Styling
 import classes from "./Profile.module.scss";
@@ -25,7 +30,7 @@ function Profile() {
     isLoaded && (
       <section className={classes.Profile}>
         <div className={classes.LinkBack}>
-          <BackToNav />
+          <BackLink />
         </div>
         <img
           src={profile.avatar300x300}

@@ -3,15 +3,16 @@ import { useHistory, useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 // Components
-import BackToNav from "../../../components/BackToNav/BackToNav";
+import BackLink from "../../../components/BackLink/BackLink";
 import SearchReceiversaInputDesktop from "../SearchReceiversInputDesktop/SearchReceiversInputDesktop";
 import SearchReceiversList from "../SearchReceiversList/SearchReceiversList";
 import Receiver from "../Receiver/Receiver";
 import SearchReceiverInputMobile from "../SearchReceiverInputMobile/SearchReceiverInputMobile";
+
+// Assets
 import { ReactComponent as NextSVG } from "../../../assets/right-arrow.svg";
 
 // Hooks
-// import useNewConversation from "../useNewConversation";
 import useReceiversForm from "./useReceiversForm";
 
 // Routes
@@ -43,7 +44,7 @@ function ReceiversForm({ isDm }) {
 
   return (
     <section className={classes.Section}>
-      <BackToNav className={classes.BtnBack} />
+      <BackLink className={classes.BtnBack} />
       {isSmallScreen && (
         <SearchReceiverInputMobile
           className={classes.Input}

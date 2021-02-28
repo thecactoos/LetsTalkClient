@@ -1,12 +1,14 @@
 import React from "react";
-import ConversationBar from "../../components/ConversationBar/ConversationBar";
 
 // Components
+import ConversationBar from "../../components/ConversationBar/ConversationBar";
 import Messages from "../../components/Messages/Messages";
 import SendMessageForm from "../../components/SendMessageForm/SendMessageForm";
 
 // Style
 import classes from "./Conversation.module.scss";
+
+// Hooks
 import useConversation from "./useConversation";
 
 const Conversation = () => {
