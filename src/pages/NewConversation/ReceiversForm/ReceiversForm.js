@@ -66,11 +66,11 @@ function ReceiversForm({ isDm }) {
             <legend className={classes.Legend}>To:</legend>
             {!isDm &&
               receivers.length !== 0 &&
-              receivers.map(({ username, id: receiverId, avatar }) => (
+              receivers.map(({ username, id: receiverId, avatar50x50 }) => (
                 <Receiver
                   isReceiver
                   key={receiverId}
-                  avatar={avatar}
+                  avatar={avatar50x50}
                   username={username}
                   id={receiverId}
                   handleChange={() => {

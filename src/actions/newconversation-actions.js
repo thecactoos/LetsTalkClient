@@ -16,6 +16,7 @@ import {
   SET_AVATAR,
   SET_CHATNAME,
   SET_RECEIVER_DM,
+  REMOVE_ALL_RECEIVERS,
 } from "./newconversation-action-types";
 
 export const addReceiver = (id, username, avatar) => {
@@ -24,7 +25,7 @@ export const addReceiver = (id, username, avatar) => {
     payload: {
       id,
       username,
-      avatar,
+      avatar50x50: avatar,
     },
   };
 };
@@ -34,7 +35,7 @@ export const setReceiverDm = (id, username, avatar) => ({
   payload: {
     id,
     username,
-    avatar,
+    avatar50x50: avatar,
   },
 });
 
@@ -42,6 +43,12 @@ export const removeReceiver = (id) => {
   return {
     type: REMOVE_RECEIVER,
     payload: id,
+  };
+};
+
+export const removeAllReceivers = () => {
+  return {
+    type: REMOVE_ALL_RECEIVERS,
   };
 };
 
