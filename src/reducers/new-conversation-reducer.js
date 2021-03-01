@@ -14,6 +14,7 @@ import {
   SET_AVATAR,
   SET_CHATNAME,
   SET_RECEIVER_DM,
+  REMOVE_ALL_RECEIVERS,
 } from "../actions/newconversation-action-types";
 
 const initialState = {
@@ -56,6 +57,12 @@ export default function reducer(state = initialState, action) {
         ...state,
         receivers: [...state.receivers, payload],
       };
+    case REMOVE_ALL_RECEIVERS: {
+      return {
+        ...state,
+        receivers: [],
+      };
+    }
     case REMOVE_RECEIVER:
       return {
         ...state,
