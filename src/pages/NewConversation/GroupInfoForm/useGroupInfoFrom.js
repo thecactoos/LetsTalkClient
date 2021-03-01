@@ -12,6 +12,9 @@ const useGroupInfoForm = () => {
   const avatarGroup = useSelector((state) => state.newconversation.avatarGroup);
   const isCreating = useSelector((state) => state.newconversation.isCreating);
   const receivers = useSelector((state) => state.newconversation.receivers);
+  const createdConversation = useSelector(
+    (state) => state.newconversation.conversation
+  );
   const [preview, setPreview] = useState();
 
   const handleChatName = (e) => {
@@ -57,6 +60,7 @@ const useGroupInfoForm = () => {
     avatarGroup,
     handleGroupAvatarChange,
     handleCreateConversation,
+    createdConversation,
     previewGroupAvatar: preview,
   };
 };

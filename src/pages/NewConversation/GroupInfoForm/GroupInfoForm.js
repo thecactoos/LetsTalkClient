@@ -11,7 +11,10 @@ import { ReactComponent as CreateSVG } from "../../../assets/usersadded.svg";
 
 // Styles
 import classes from "./GroupInfoForm.module.scss";
-import { NEW_CONVERSATION_GROUP_RECEIVERS } from "../../../consts/routes";
+import {
+  CONVERSATION_WITHOUT_ID,
+  NEW_CONVERSATION_GROUP_RECEIVERS,
+} from "../../../consts/routes";
 
 function GroupInfoForm() {
   const {
@@ -22,7 +25,21 @@ function GroupInfoForm() {
     handleCreateConversation,
     receivers,
     isCreating,
+    createdConversation,
   } = useGroupInfoForm();
+
+  if (createdConversation) {
+    return (
+      <Redirect
+        to={{
+          pathname: `${CONVERSATION_WITHOUT_ID}${createdConversation._id}`,
+          state: {
+            fromCreateDm: true,
+          },
+        }}
+      />
+    );
+  }
 
   if (receivers.length === 0) {
     return <Redirect to={NEW_CONVERSATION_GROUP_RECEIVERS} />;
