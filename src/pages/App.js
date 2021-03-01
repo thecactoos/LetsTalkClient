@@ -29,8 +29,6 @@ import Sidebar from "../layout/Sidebar/Sidebar";
 import Navigation from "./Navigation/Navigation";
 import SplashingScreen from "../layout/SplashingScreen/SplashingScreen";
 
-// import SideDrawer from "../layout/SideDrawer/SideDrawer";
-
 // Actions
 import { loadUser } from "../actions/auth-actions";
 
@@ -83,11 +81,21 @@ function AuthorizedRoutes() {
   // Transition animation
   // eslint-disable-next-line no-shadow
   const transitions = useTransition(location, (location) => location.pathname, {
-    from: {
-      opacity: 0,
-      transform: "scale(0.9)",
-      width: "100%",
-      height: "100%",
+    from: (item) => {
+      if (item?.state?.fromCreateDm) {
+        return {
+          opacity: 1,
+          transform: "scale(1)",
+          width: "100%",
+          height: "100%",
+        };
+      }
+      return {
+        opacity: 0,
+        transform: "scale(0.9)",
+        width: "100%",
+        height: "100%",
+      };
     },
     enter: {
       opacity: 1,
