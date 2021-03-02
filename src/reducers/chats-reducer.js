@@ -102,8 +102,8 @@ export default (state = initialState, { type, payload }) => {
         date: new Date().toISOString(),
         isSending: true,
       };
-      // console.log(newMessage);
       updatedChat.messages.push(newMessage);
+      updatedChat.lastMessageDate = new Date().toISOString();
       const updatedChats = [...state.chats];
       updatedChats[chatIndex] = updatedChat;
       return {
@@ -158,6 +158,7 @@ export default (state = initialState, { type, payload }) => {
         JSON.stringify(state.chats[conversationIndex])
       );
       newConversation.messages.push(newMessage);
+      newConversation.lastMessageDate = newMessage.date;
       newChats[conversationIndex] = newConversation;
       return {
         ...state,
