@@ -12,12 +12,11 @@ import {
 } from "./auth-action-types";
 
 import { SOCKET_INIT } from "./chats-action-types";
-// DISABLE WITH withCredentials for development
 
 export const loadUser = () => async (dispatch) => {
   try {
     const res = await axios.get("/api/auth", {
-      // withCredentials: true,
+      withCredentials: true,
     });
     dispatch({
       type: SOCKET_INIT,
@@ -43,7 +42,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
     headers: {
       "Content-Type": "application/json",
     },
-    // withCredentials: true,
+    withCredentials: true,
   };
 
   const body = JSON.stringify({ username, email, password });
@@ -87,7 +86,7 @@ export const signIn = (email, password) => async (dispatch) => {
     headers: {
       "Content-Type": "application/json",
     },
-    // withCredentials: true,
+    withCredentials: true,
   };
 
   const body = JSON.stringify({ email, password });
@@ -126,7 +125,9 @@ export const removeErrors = () => (dispatch) => {
 
 // Logout
 export const logout = () => async (dispatch) => {
-  await axios.put("api/auth");
+  await axios.put("/api/auth", {
+    withCredentials: true,
+  });
   dispatch({
     type: LOGOUT,
   });
