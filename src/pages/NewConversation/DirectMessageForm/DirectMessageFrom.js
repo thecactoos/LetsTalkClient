@@ -25,15 +25,15 @@ function DirectMessageForm() {
     headingString,
     submitHandler,
     messages,
-    conversation,
+    createdConversation,
     avatar,
   } = useDirectMessageFrom();
 
-  if (conversation) {
+  if (createdConversation) {
     return (
       <Redirect
         to={{
-          pathname: `${CONVERSATION_WITHOUT_ID}${conversation._id}`,
+          pathname: `${CONVERSATION_WITHOUT_ID}${createdConversation._id}`,
           state: {
             fromCreateDm: true,
           },
