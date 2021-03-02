@@ -74,7 +74,7 @@ function UnauthorizedRoutes() {
 function AuthorizedRoutes() {
   const location = useLocation();
   const height = use100vh();
-  const isMobile = useMediaQuery({
+  const isSmallScreen = useMediaQuery({
     query: "(max-width: 1023px)",
   });
 
@@ -111,16 +111,17 @@ function AuthorizedRoutes() {
     },
   });
 
-  // Testing overflow should be hidden
   return (
     <div className={classes.AppWrapper} style={{ height, overflow: "hidden" }}>
-      <Sidebar>
-        <Navigation />
-      </Sidebar>
+      {!isSmallScreen && (
+        <Sidebar>
+          <Navigation />
+        </Sidebar>
+      )}
       {transitions.map(({ item, props, key }) => {
         return (
           <animated.div key={key} style={props}>
-            {isMobile ? (
+            {isSmallScreen ? (
               <Switch location={item}>
                 <Route exact path={HOME} component={Navigation} />
                 <Route path={NEW_CONVERSATION} component={NewConversation} />
