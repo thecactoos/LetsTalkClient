@@ -58,7 +58,6 @@ function* createNewConversationGroupSaga() {
     try {
       const { data } = yield call(axios.put, "/api/profile", formData, config);
 
-      yield console.log(data);
       yield put(actions.updateAvatarSuccess(data));
     } catch (error) {
       // console.log(error.message);
