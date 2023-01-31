@@ -56,6 +56,7 @@ function* socketSetup() {
   } catch (error) {
     console.log(error);
   }
+  return false;
 }
 
 function* allActions(socket, socketChannel) {
