@@ -8,7 +8,7 @@ export default function createSocketConnection() {
     path: "/socket",
     withCredentials: true,
   });
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     socket.on("connect", () => {
       res(socket);
     });
