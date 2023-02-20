@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   createNewGroupConversation,
   setAvatar,
   setChatName,
-} from "../../../actions/newconversation-actions";
+} from '../../../actions/newconversation-actions';
 
 const useGroupInfoForm = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const useGroupInfoForm = () => {
   const isCreating = useSelector((state) => state.newconversation.isCreating);
   const receivers = useSelector((state) => state.newconversation.receivers);
   const createdConversation = useSelector(
-    (state) => state.newconversation.conversation
+    (state) => state.newconversation.conversation,
   );
   const [preview, setPreview] = useState();
 
@@ -48,7 +48,7 @@ const useGroupInfoForm = () => {
       createNewGroupConversation({
         chatName,
         chatAvatarGroup: avatarGroup,
-      })
+      }),
     );
   };
 

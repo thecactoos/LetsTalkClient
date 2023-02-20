@@ -1,14 +1,14 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 // Components
-import UserImg from "../../../../components/UserImg/UserImg";
+import UserImg from '../../../../components/UserImg/UserImg';
 
 // Routes
-import { PROFILE_USER_WITHOUT_ID } from "../../../../consts/routes";
+import { PROFILE_USER_WITHOUT_ID } from '../../../../consts/routes';
 
 // Styles
-import classes from "./User.module.scss";
+import classes from './User.module.scss';
 
 // Add avatar
 function User({ id, username, avatar }) {

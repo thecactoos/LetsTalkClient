@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 // Styles
-import classes from "./Button.module.scss";
+import classes from './Button.module.scss';
 
 const Button = ({ children }) => {
   return (

@@ -1,5 +1,5 @@
-import React from "react";
-import classes from "./Spinner.module.scss";
+import React from 'react';
+import classes from './Spinner.module.scss';
 
 const Spinner = () => {
   return (

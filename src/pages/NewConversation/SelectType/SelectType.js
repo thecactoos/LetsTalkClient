@@ -1,25 +1,25 @@
-import React, { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 // Components
-import BackLink from "../../../components/BackLink/BackLink";
+import BackLink from '../../../components/BackLink/BackLink';
 
 // Routes
 import {
   NEW_CONVERSATION_GROUP_RECEIVERS,
   NEW_CONVERSATION_DM_RECEIVER,
-} from "../../../consts/routes";
+} from '../../../consts/routes';
 
 // Assets
-import { ReactComponent as NewGroupSVG } from "../../../assets/group.svg";
-import { ReactComponent as NewDMSVG } from "../../../assets/plane.svg";
+import { ReactComponent as NewGroupSVG } from '../../../assets/group.svg';
+import { ReactComponent as NewDMSVG } from '../../../assets/plane.svg';
 
 // Actions
-import { clearNewConversation } from "../../../actions/newconversation-actions";
+import { clearNewConversation } from '../../../actions/newconversation-actions';
 
 // Styles
-import classes from "./SelectType.module.scss";
+import classes from './SelectType.module.scss';
 
 function NewConversationSelectType() {
   const location = useLocation();

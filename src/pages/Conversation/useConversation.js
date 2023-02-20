@@ -1,10 +1,10 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { sendMessageRequest } from "../../actions/chats-actions";
-import { getConversationByIdRequest } from "../../actions/conversation-actions";
-import createChatHeadingString from "../../utils/createheadingChatString";
-import pickAvatarToDisplay from "../../utils/pickAvatarToDisplay";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { sendMessageRequest } from '../../actions/chats-actions';
+import { getConversationByIdRequest } from '../../actions/conversation-actions';
+import createChatHeadingString from '../../utils/createheadingChatString';
+import pickAvatarToDisplay from '../../utils/pickAvatarToDisplay';
 
 const useConversation = () => {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ const useConversation = () => {
   const userId = useSelector((state) => state.auth.user._id);
   const isLoaded = useSelector((state) => state.main.isLoaded);
   const currentConversation = useSelector((state) =>
-    state.main.chats.find((chat) => chat._id === conversationId)
+    state.main.chats.find((chat) => chat._id === conversationId),
   );
 
   const sendMessageHandler = (messageContent) => {
@@ -34,7 +34,7 @@ const useConversation = () => {
     return {
       members: [],
       messages: [],
-      headingString: "Loading...",
+      headingString: 'Loading...',
     };
 
   return {

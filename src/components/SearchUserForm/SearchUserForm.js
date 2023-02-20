@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 // Assets
-import { ReactComponent as Reset } from "../../assets/x.svg";
+import { ReactComponent as Reset } from '../../assets/x.svg';
 
-import classes from "./SearchUserForm.module.scss";
+import classes from './SearchUserForm.module.scss';
 
 function SearchUserForm({
   handleSubmit,

@@ -1,25 +1,25 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 // Hooks
-import BackLink from "../../components/BackLink/BackLink";
+import BackLink from '../../components/BackLink/BackLink';
 
 // Assets
-import { ReactComponent as Plane } from "../../assets/plane.svg";
-import { ReactComponent as Group } from "../../assets/usersadded.svg";
+import { ReactComponent as Plane } from '../../assets/plane.svg';
+import { ReactComponent as Group } from '../../assets/usersadded.svg';
 
 // Routes
 import {
   NEW_CONVERSATION_DM_CONVERSATION,
   NEW_CONVERSATION_DM_RECEIVER,
   NEW_CONVERSATION_GROUP_RECEIVERS,
-} from "../../consts/routes";
+} from '../../consts/routes';
 
 // Hooks
-import useProfile from "./useProfile";
+import useProfile from './useProfile';
 
 // Styling
-import classes from "./Profile.module.scss";
+import classes from './Profile.module.scss';
 
 function Profile() {
   const location = useLocation();

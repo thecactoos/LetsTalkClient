@@ -2,7 +2,7 @@ import {
   SEARCH_USER_REQUEST,
   SEARCH_USER_SUCCESS,
   SEARCH_USER_FAIL,
-} from "./navigation-action-types";
+} from './navigation-action-types';
 
 export const searchUserRequest = (payload) => ({
   type: SEARCH_USER_REQUEST,

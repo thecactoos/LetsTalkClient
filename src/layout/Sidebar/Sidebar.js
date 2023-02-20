@@ -1,5 +1,5 @@
-import React from "react";
-import classes from "./Sidebar.module.scss";
+import React from 'react';
+import classes from './Sidebar.module.scss';
 
 const Sidebar = ({ children }) => {
   return (

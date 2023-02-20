@@ -1,4 +1,4 @@
-import { AUTH_SUCCESS } from "../actions/auth-action-types";
+import { AUTH_SUCCESS } from '../actions/auth-action-types';
 import {
   SET_BIO,
   SET_PROFILE_AVATAR,
@@ -12,12 +12,12 @@ import {
   UPDATE_USERNAME_FAIL,
   UPDATE_USERNAME_REQUEST,
   UPDATE_USERNAME_SUCCESS,
-} from "../actions/profile-form-action-types";
+} from '../actions/profile-form-action-types';
 
 const initialState = {
-  username: "",
-  bio: "",
-  avatar: "",
+  username: '',
+  bio: '',
+  avatar: '',
   isUpdatingUsername: false,
   isUpdatingBio: false,
   isUpdatingAvatar: false,

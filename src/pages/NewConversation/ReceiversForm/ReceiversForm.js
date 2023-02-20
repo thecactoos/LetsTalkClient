@@ -1,25 +1,25 @@
-import React from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
+import React from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 // Components
-import BackLink from "../../../components/BackLink/BackLink";
-import SearchReceiversaInputDesktop from "../SearchReceiversInputDesktop/SearchReceiversInputDesktop";
-import SearchReceiversList from "../SearchReceiversList/SearchReceiversList";
-import Receiver from "../Receiver/Receiver";
-import SearchReceiverInputMobile from "../SearchReceiverInputMobile/SearchReceiverInputMobile";
+import BackLink from '../../../components/BackLink/BackLink';
+import SearchReceiversaInputDesktop from '../SearchReceiversInputDesktop/SearchReceiversInputDesktop';
+import SearchReceiversList from '../SearchReceiversList/SearchReceiversList';
+import Receiver from '../Receiver/Receiver';
+import SearchReceiverInputMobile from '../SearchReceiverInputMobile/SearchReceiverInputMobile';
 
 // Assets
-import { ReactComponent as NextSVG } from "../../../assets/right-arrow.svg";
+import { ReactComponent as NextSVG } from '../../../assets/right-arrow.svg';
 
 // Hooks
-import useReceiversForm from "./useReceiversForm";
+import useReceiversForm from './useReceiversForm';
 
 // Routes
-import { NEW_CONVERSATION_GROUP_INFO } from "../../../consts/routes";
+import { NEW_CONVERSATION_GROUP_INFO } from '../../../consts/routes';
 
 // Styles
-import classes from "./ReceiversForm.module.scss";
+import classes from './ReceiversForm.module.scss';
 
 function ReceiversForm({ isDm }) {
   const location = useLocation();
@@ -39,7 +39,7 @@ function ReceiversForm({ isDm }) {
   } = useReceiversForm(isDm);
 
   const isSmallScreen = useMediaQuery({
-    query: "(max-width: 1023px)",
+    query: '(max-width: 1023px)',
   });
 
   return (

@@ -1,15 +1,15 @@
-import { useState, useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useLocation } from "react-router-dom";
+import { useState, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useLocation } from 'react-router-dom';
 import {
   setReceiverDm,
   searchReceiverRequest,
   addReceiver,
   removeReceiver,
-} from "../../../actions/newconversation-actions";
-import { NEW_CONVERSATION_DM_CONVERSATION } from "../../../consts/routes";
+} from '../../../actions/newconversation-actions';
+import { NEW_CONVERSATION_DM_CONVERSATION } from '../../../consts/routes';
 
-import useSearchInput from "../../../hooks/useSearchInput";
+import useSearchInput from '../../../hooks/useSearchInput';
 
 const useReceiversForm = (isDm) => {
   const history = useHistory();
@@ -17,7 +17,7 @@ const useReceiversForm = (isDm) => {
   const searchInputRef = useRef(null);
   const dispatch = useDispatch();
   const searchUsers = useSelector(
-    (state) => state.newconversation.searchReceivers
+    (state) => state.newconversation.searchReceivers,
   );
   const isSearching = useSelector((state) => state.newconversation.isSearching);
   const receivers = useSelector((state) => state.newconversation.receivers);
@@ -70,7 +70,7 @@ const useReceiversForm = (isDm) => {
     if (searchUsers.length !== 0 && searchValue.length !== 0) {
       const searchValueLowerCase = searchValue.toLowerCase();
       const filteredUsersBySearchValue = searchUsers.filter((user) =>
-        user.username.toLowerCase().includes(searchValueLowerCase)
+        user.username.toLowerCase().includes(searchValueLowerCase),
       );
       setFilteredUsers(filteredUsersBySearchValue);
     }
@@ -80,7 +80,7 @@ const useReceiversForm = (isDm) => {
     if (searchValue.length === 0) {
       const suggestedUsers = chats.reduce((users, chat) => {
         const isFounded = chat.members.filter(
-          (member) => !users.map((user) => user._id).includes(member._id)
+          (member) => !users.map((user) => user._id).includes(member._id),
         );
         if (isFounded.length !== 0) return [...users, ...isFounded];
         return users;

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 import {
   SET_SIGN_LOADING,
@@ -9,13 +9,13 @@ import {
   AUTH_ERROR,
   REMOVE_ERRORS,
   LOGOUT,
-} from "./auth-action-types";
+} from './auth-action-types';
 
-import { SOCKET_INIT } from "./chats-action-types";
+import { SOCKET_INIT } from './chats-action-types';
 
 export const loadUser = () => async (dispatch) => {
   try {
-    const res = await axios.get("/api/auth", {
+    const res = await axios.get('/api/auth', {
       withCredentials: true,
     });
     dispatch({
@@ -40,7 +40,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
 
   const config = {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     withCredentials: true,
   };
@@ -48,7 +48,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
   const body = JSON.stringify({ username, email, password });
 
   try {
-    const res = await axios.post("/api/users", body, config);
+    const res = await axios.post('/api/users', body, config);
     await dispatch({
       type: SIGN_UP_SUCCESS,
       payload: res.data,
@@ -61,7 +61,7 @@ export const signUp = (username, email, password) => async (dispatch) => {
         payload: {
           errors: [
             {
-              msg: "Server Error, Please try again later",
+              msg: 'Server Error, Please try again later',
             },
           ],
         },
@@ -84,7 +84,7 @@ export const signIn = (email, password) => async (dispatch) => {
 
   const config = {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     withCredentials: true,
   };
@@ -92,7 +92,7 @@ export const signIn = (email, password) => async (dispatch) => {
   const body = JSON.stringify({ email, password });
 
   try {
-    await axios.post("/api/auth", body, config);
+    await axios.post('/api/auth', body, config);
     dispatch(loadUser());
   } catch (error) {
     if (error.response.status === 500 || error.response.status === 504) {
@@ -101,7 +101,7 @@ export const signIn = (email, password) => async (dispatch) => {
         payload: {
           errors: [
             {
-              msg: "Server Error, Please try again later",
+              msg: 'Server Error, Please try again later',
             },
           ],
         },
@@ -125,7 +125,7 @@ export const removeErrors = () => (dispatch) => {
 
 // Logout
 export const logout = () => async (dispatch) => {
-  await axios.put("/api/auth", {
+  await axios.put('/api/auth', {
     withCredentials: true,
   });
   dispatch({

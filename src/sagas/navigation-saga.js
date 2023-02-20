@@ -1,7 +1,7 @@
-import { put, call, takeLatest } from "redux-saga/effects";
-import * as socketTypes from "../consts/socketTypes";
-import * as actions from "../actions/navigation-actions";
-import { SEARCH_USER_REQUEST } from "../actions/navigation-action-types";
+import { put, call, takeLatest } from 'redux-saga/effects';
+import * as socketTypes from '../consts/socketTypes';
+import * as actions from '../actions/navigation-actions';
+import { SEARCH_USER_REQUEST } from '../actions/navigation-action-types';
 
 function searchUserByUsername(socket, payload) {
   return new Promise((res, rej) => {

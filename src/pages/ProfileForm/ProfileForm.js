@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 
 // Components
-import BackLink from "../../components/BackLink/BackLink";
+import BackLink from '../../components/BackLink/BackLink';
 
 // Assets
-import { ReactComponent as TickMarkSVG } from "../../assets/tick-mark.svg";
-import { ReactComponent as CameraSVG } from "../../assets/camera.svg";
+import { ReactComponent as TickMarkSVG } from '../../assets/tick-mark.svg';
+import { ReactComponent as CameraSVG } from '../../assets/camera.svg';
 
 // Hooks
-import useProfileForm from "./useProfileForm";
+import useProfileForm from './useProfileForm';
 
 // Styles
-import classes from "./ProfileForm.module.scss";
+import classes from './ProfileForm.module.scss';
 
 function ProfileForm() {
   const {

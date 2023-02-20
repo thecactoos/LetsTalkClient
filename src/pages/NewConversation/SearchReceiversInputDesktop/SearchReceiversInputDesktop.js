@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 // Styles
-import classes from "./SearchReceiversInputDesktop.module.scss";
+import classes from './SearchReceiversInputDesktop.module.scss';
 
 const SearchReceiversaInputDesktop = ({
   handleSearchChange,

@@ -1,11 +1,11 @@
-import React, { useState, useRef } from "react";
-import TextareaAutosize from "react-textarea-autosize";
+import React, { useState, useRef } from 'react';
+import TextareaAutosize from 'react-textarea-autosize';
 
 // Styles
-import classes from "./SendMessageForm.module.scss";
+import classes from './SendMessageForm.module.scss';
 
 function SendMessageForm({ submitHandler }) {
-  const [message, setMessage] = useState(``);
+  const [message, setMessage] = useState('');
   const inputRef = useRef();
 
   const handleSendMessage = (e) => {
@@ -13,7 +13,7 @@ function SendMessageForm({ submitHandler }) {
     if (message.trim().length === 0) return;
     submitHandler(message.trim());
     inputRef.current.focus();
-    setMessage("");
+    setMessage('');
   };
 
   const onEnterPress = (e) => {

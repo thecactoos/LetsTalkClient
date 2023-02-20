@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
 // Assets
-import { ReactComponent as UserNotFoundIcon } from "../../../assets/user-not-found.svg";
+import { ReactComponent as UserNotFoundIcon } from '../../../assets/user-not-found.svg';
 
 // Components
-import Spinner from "../../../layout/Spinner/Spinner";
-import Receiver from "../SearchReceiversItem/SearchReceiversItem";
+import Spinner from '../../../layout/Spinner/Spinner';
+import Receiver from '../SearchReceiversItem/SearchReceiversItem';
 
 // Styles
-import classes from "./SearchReceiversList.module.scss";
+import classes from './SearchReceiversList.module.scss';
 
 const isReceiver = (id, receivers) =>
   receivers.map((receiver) => receiver.id).includes(id);

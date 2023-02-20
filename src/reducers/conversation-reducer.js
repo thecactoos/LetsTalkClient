@@ -2,7 +2,7 @@ import {
   GET_CONVERSATION_BY_ID_FAIL,
   GET_CONVERSATION_BY_ID_REQUEST,
   GET_CONVERSATION_BY_ID_SUCCESS,
-} from "../actions/conversation-action-types";
+} from '../actions/conversation-action-types';
 
 const initialState = {
   isLoading: true,

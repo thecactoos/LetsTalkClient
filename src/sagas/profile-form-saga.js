@@ -1,7 +1,7 @@
-import axios from "axios";
-import { put, call, take, fork } from "redux-saga/effects";
-import * as socketTypes from "../consts/socketTypes";
-import * as actions from "../actions/profile-form-actions";
+import axios from 'axios';
+import { put, call, take, fork } from 'redux-saga/effects';
+import * as socketTypes from '../consts/socketTypes';
+import * as actions from '../actions/profile-form-actions';
 
 function updateUsername(socket, username) {
   return new Promise((res, rej) => {
@@ -53,10 +53,10 @@ function* createNewConversationGroupSaga() {
     };
 
     const formData = new FormData();
-    formData.append("file", payload);
+    formData.append('file', payload);
 
     try {
-      const { data } = yield call(axios.put, "/api/profile", formData, config);
+      const { data } = yield call(axios.put, '/api/profile', formData, config);
 
       yield put(actions.updateAvatarSuccess(data));
     } catch (error) {

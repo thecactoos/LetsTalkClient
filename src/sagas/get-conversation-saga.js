@@ -1,6 +1,6 @@
-import { put, call, take } from "redux-saga/effects";
-import * as socketTypes from "../consts/socketTypes";
-import * as actions from "../actions/conversation-actions";
+import { put, call, take } from 'redux-saga/effects';
+import * as socketTypes from '../consts/socketTypes';
+import * as actions from '../actions/conversation-actions';
 
 function getConversationById(socket, id) {
   return new Promise((res, rej) => {

@@ -1,8 +1,8 @@
-import { useState, useCallback } from "react";
-import { debounce } from "lodash";
+import { useState, useCallback } from 'react';
+import { debounce } from 'lodash';
 
 const useSearchInput = (searchRequest) => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
   const handleSearchDebounce = useCallback(
@@ -12,7 +12,7 @@ const useSearchInput = (searchRequest) => {
       }
       setIsTyping(false);
     }, 300),
-    []
+    [],
   );
 
   const handleSearchSubmit = (e) => {
@@ -21,7 +21,7 @@ const useSearchInput = (searchRequest) => {
   };
 
   const clearSearchValue = () => {
-    setSearchValue("");
+    setSearchValue('');
   };
 
   const handleSearchChange = (e) => {

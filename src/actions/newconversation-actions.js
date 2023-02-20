@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 
 import {
   ADD_RECEIVER,
@@ -17,7 +17,7 @@ import {
   SET_CHATNAME,
   SET_RECEIVER_DM,
   REMOVE_ALL_RECEIVERS,
-} from "./newconversation-action-types";
+} from './newconversation-action-types';
 
 export const addReceiver = (id, username, avatar) => {
   return {
@@ -68,7 +68,7 @@ export const createNewConversation = (receivers, messageContent, user) => ({
 export const createNewConversationSuccess = (
   conversation,
   tempConversationId,
-  tempMessageId
+  tempMessageId,
 ) => ({
   type: CREATE_NEW_CONVERSATION_SUCCESS,
   payload: {

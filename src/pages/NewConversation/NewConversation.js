@@ -1,12 +1,12 @@
-import React from "react";
-import { Redirect, Switch, Route } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
+import React from 'react';
+import { Redirect, Switch, Route } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 // Components
-import GroupInfoForm from "./GroupInfoForm/GroupInfoForm";
-import SelectType from "./SelectType/SelectType";
-import ReceiversForm from "./ReceiversForm/ReceiversForm";
-import DirectMessage from "./DirectMessageForm/DirectMessageFrom";
+import GroupInfoForm from './GroupInfoForm/GroupInfoForm';
+import SelectType from './SelectType/SelectType';
+import ReceiversForm from './ReceiversForm/ReceiversForm';
+import DirectMessage from './DirectMessageForm/DirectMessageFrom';
 
 // Routes
 import {
@@ -15,11 +15,11 @@ import {
   NEW_CONVERSATION_DM_RECEIVER,
   NEW_CONVERSATION_DM_CONVERSATION,
   NEW_CONVERSATION,
-} from "../../consts/routes";
+} from '../../consts/routes';
 
 function NewConversation() {
   const isSmallScreen = useMediaQuery({
-    query: "(max-width: 1023px)",
+    query: '(max-width: 1023px)',
   });
 
   return (
