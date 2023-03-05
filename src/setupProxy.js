@@ -5,7 +5,7 @@ module.exports = function setupProxy(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://localhost:8000/',
+      target: 'https://chatark.herokuapp.com/api',
       changeOrigin: true,
     }),
   );

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import isDev from '../utils/isDev';
 
 import {
   SET_SIGN_LOADING,
@@ -15,9 +16,12 @@ import { SOCKET_INIT } from './chats-action-types';
 
 export const loadUser = () => async (dispatch) => {
   try {
-    const res = await axios.get('/api/auth', {
-      withCredentials: true,
-    });
+    const res = await axios.get(
+      isDev ? '/api/auth' : `${process.env.REACT_APP_API_PROD_URL}/auth`,
+      {
+        withCredentials: true,
+      },
+    );
     dispatch({
       type: SOCKET_INIT,
     });
@@ -48,7 +52,11 @@ export const signUp = (username, email, password) => async (dispatch) => {
   const body = JSON.stringify({ username, email, password });
 
   try {
-    const res = await axios.post('/api/users', body, config);
+    const res = await axios.post(
+      isDev ? '/api/users' : `${process.env.REACT_APP_API_PROD_URL}/users`,
+      body,
+      config,
+    );
     await dispatch({
       type: SIGN_UP_SUCCESS,
       payload: res.data,
@@ -92,7 +100,11 @@ export const signIn = (email, password) => async (dispatch) => {
   const body = JSON.stringify({ email, password });
 
   try {
-    await axios.post('/api/auth', body, config);
+    await axios.post(
+      isDev ? '/api/auth' : `${process.env.REACT_APP_API_PROD_URL}/auth`,
+      body,
+      config,
+    );
     dispatch(loadUser());
   } catch (error) {
     if (error.response.status === 500 || error.response.status === 504) {
@@ -125,9 +137,12 @@ export const removeErrors = () => (dispatch) => {
 
 // Logout
 export const logout = () => async (dispatch) => {
-  await axios.put('/api/auth', {
-    withCredentials: true,
-  });
+  await axios.put(
+    isDev ? '/api/auth' : `${process.env.REACT_APP_API_PROD_URL}/auth`,
+    {
+      withCredentials: true,
+    },
+  );
   dispatch({
     type: LOGOUT,
   });
