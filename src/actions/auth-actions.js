@@ -140,14 +140,15 @@ export const logout = () => async (dispatch) => {
   try {
     await axios.put(
       isDev ? '/api/auth' : `${process.env.REACT_APP_API_PROD_URL}/auth`,
+      {},
       {
         withCredentials: true,
       },
     );
+    dispatch({
+      type: LOGOUT,
+    });
   } catch (error) {
     console.log(error);
   }
-  dispatch({
-    type: LOGOUT,
-  });
 };
