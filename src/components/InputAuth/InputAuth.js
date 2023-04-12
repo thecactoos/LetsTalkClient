@@ -3,10 +3,11 @@ import React from 'react';
 // Styles
 import classes from './InputAuth.module.scss';
 
-const Input = ({ value, isValid, type, changed, name, labelText }) => {
+const Input = ({ value, isValid, type, changed, name, labelText, ref }) => {
   return (
     <div className={classes.InputBox}>
       <input
+        ref={ref}
         className={
           isValid ? `${classes.Input} ${classes.InputValid}` : classes.Input
         }

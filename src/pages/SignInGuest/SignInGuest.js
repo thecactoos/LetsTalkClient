@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Components
@@ -20,6 +20,7 @@ const SignIn = () => {
   const isLoadingSign = useSelector((state) => state.auth.isLoadingSign);
   const errors = useSelector((state) => state.auth.errors);
   const dispatch = useDispatch();
+  const inputEmailRef = useRef(null);
 
   useEffect(() => dispatch(removeErrors()), [dispatch]);
 
@@ -55,6 +56,8 @@ const SignIn = () => {
     await simulateTypingPassword('Test1234');
   };
 
+  const type2 = async (text, ref) => {};
+
   useEffect(() => {
     if (!isFinishedTypingEmail) {
       type();
@@ -64,7 +67,11 @@ const SignIn = () => {
     }
   }, [isFinishedTypingEmail, isFinishedTypingPassword, dispatch]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (inputEmailRef) {
+      inputEmailRef.current.focus();
+    }
+  }, [inputEmailRef]);
 
   return (
     <section className={classes.Section} onSubmit={handleSubmit}>
@@ -78,7 +85,13 @@ const SignIn = () => {
       {errors.length > 0 && <ErrorMessage msg={errors[0].msg} />}
       <form className={classes.Form}>
         {/*  eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Input type="email" name="email" labelText="Email" {...bindEmail} />
+        <Input
+          type="email"
+          name="email"
+          labelText="Email"
+          {...bindEmail}
+          ref={inputEmailRef}
+        />
         <Input
           type="password"
           name="password"
