@@ -54,11 +54,11 @@ const SignIn = () => {
       {errors.length !== 0 && <ErrorMessage msg={errors[0].msg} />}
       <form className={classes.Form}>
         {/*  eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Input type="email" name="email" labelText="Email" {...bindEmail} />
+        <Input type='email' name='email' labelText='Email' {...bindEmail} />
         <Input
-          type="password"
-          name="password"
-          labelText="Password"
+          type='password'
+          name='password'
+          labelText='Password'
           /* eslint-disable-next-line react/jsx-props-no-spreading */
           {...bindPassword}
         />
@@ -68,6 +68,12 @@ const SignIn = () => {
         Don&apos;t have an account ?
         <Link to={SIGN_UP} className={classes.LinkAuthSwitch}>
           Sign up here!
+        </Link>
+      </p>
+      <p className={classes.ParagraphAuthSwitch}>
+        Do you want to try demo ?
+        <Link to={SIGN_UP} className={classes.LinkAuthSwitch}>
+          Click here
         </Link>
       </p>
     </section>
