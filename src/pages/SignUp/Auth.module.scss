@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 .Section {
   min-height: 100vh;
@@ -31,6 +31,10 @@
 .ParagraphAuthSwitch {
   font-size: 1.6rem;
   margin-top: 1.3rem;
+
+  &__Guest {
+    font-weight: 700;
+  }
 }
 
 .LinkAuthSwitch {

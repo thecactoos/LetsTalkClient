@@ -8,6 +8,7 @@ import { useMediaQuery } from 'react-responsive';
 // Routes
 import {
   SIGN_IN,
+  SIGN_IN_GUEST,
   SIGN_UP,
   HOME,
   NEW_CONVERSATION,
@@ -19,6 +20,7 @@ import {
 
 // Components
 import SignIn from './SignIn/SignIn';
+import SignInGuest from './SignInGuest/SignInGuest';
 import SignUp from './SignUp/SignUp';
 import Conversation from './Conversation/Conversation';
 import NoConversation from './NoConversation/NoConversation';
@@ -39,6 +41,7 @@ function UnauthorizedRoutes() {
   return (
     <>
       <Route exact path={SIGN_IN} component={SignIn} />
+      <Route exact path={SIGN_IN_GUEST} component={SignInGuest} />
       <Route exact path={SIGN_UP} component={SignUp} />
       <Route path={ROOT}>
         <Redirect to={SIGN_IN} />

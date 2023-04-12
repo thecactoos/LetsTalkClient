@@ -50,6 +50,7 @@
     ],
     "react/prop-types": 0,
     "@typescript-eslint/default-param-last": 0,
+    "@typescript-eslint/no-unused-vars": "warn",
     "prettier/prettier": [
       "error",
       {

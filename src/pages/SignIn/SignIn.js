@@ -15,7 +15,7 @@ import useAuthInput from '../../hooks/useAuthInputs';
 import { signIn, removeErrors } from '../../actions/auth-actions';
 
 // Routes
-import { SIGN_UP } from '../../consts/routes';
+import { SIGN_UP, SIGN_IN_GUEST } from '../../consts/routes';
 
 // Styles
 import classes from '../SignUp/Auth.module.scss';
@@ -54,11 +54,11 @@ const SignIn = () => {
       {errors.length !== 0 && <ErrorMessage msg={errors[0].msg} />}
       <form className={classes.Form}>
         {/*  eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Input type='email' name='email' labelText='Email' {...bindEmail} />
+        <Input type="email" name="email" labelText="Email" {...bindEmail} />
         <Input
-          type='password'
-          name='password'
-          labelText='Password'
+          type="password"
+          name="password"
+          labelText="Password"
           /* eslint-disable-next-line react/jsx-props-no-spreading */
           {...bindPassword}
         />
@@ -71,8 +71,14 @@ const SignIn = () => {
         </Link>
       </p>
       <p className={classes.ParagraphAuthSwitch}>
-        Do you want to try demo ?
-        <Link to={SIGN_UP} className={classes.LinkAuthSwitch}>
+        Are you{' '}
+        <span className={classes.ParagraphAuthSwitch__Guest}>
+          HR specialist
+        </span>{' '}
+        ? Do you want{' '}
+        <span className={classes.ParagraphAuthSwitch__Guest}>just</span> to{' '}
+        <span className={classes.ParagraphAuthSwitch__Guest}>try</span> demo ?
+        <Link to={SIGN_IN_GUEST} className={classes.LinkAuthSwitch}>
           Click here
         </Link>
       </p>

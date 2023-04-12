@@ -1,5 +1,6 @@
 // Unathorized
 export const SIGN_IN = '/signIn';
+export const SIGN_IN_GUEST = '/guest';
 export const SIGN_UP = '/signUp';
 // Authorized
 export const HOME = '/messages';

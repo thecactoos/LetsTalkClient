@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { fireEvent } from '@testing-library/react';
 
 const checkValidity = (value, rules, password) => {
   let isValid = true;
@@ -28,9 +29,22 @@ const checkValidity = (value, rules, password) => {
   return isValid;
 };
 
-const useAuthInput = (rules, password) => {
+const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+
+const useAuthInput = (rules, password, isGuestMode) => {
   const [value, setValue] = useState('');
   const [isValid, setIsValid] = useState(false);
+  const [isFinishedTyping, setIsFinishedTyping] = useState(false);
+
+  async function simulateTyping(simulatedValue) {
+    /* eslint-disable no-await-in-loop */
+    for (let i = 0; i < simulatedValue.length; i += 1) {
+      setValue((prevValue) => prevValue + simulatedValue[i]);
+      await delay(Math.floor(Math.random() * 300) + 1);
+    }
+    /* eslint-enable no-await-in-loop */
+    setIsFinishedTyping(true);
+  }
 
   useEffect(() => {
     setIsValid(checkValidity(value, rules, password));
@@ -39,12 +53,14 @@ const useAuthInput = (rules, password) => {
   return {
     isValid,
     value,
+    simulateTyping,
+    isFinishedTyping,
     reset: () => setValue(''),
     bind: {
-      value,
       changed: (event) => {
         setValue(event.target.value);
       },
+      value,
       isValid,
     },
   };
