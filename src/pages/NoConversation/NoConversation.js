@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 // Assets
-import { ReactComponent as ChooseUserSvg } from "../../assets/choose-user.svg";
+import { ReactComponent as ChooseUserSvg } from '../../assets/choose-user.svg';
 
 // Styles
-import classes from "./NoConversation.module.scss";
+import classes from './NoConversation.module.scss';
 
 function NoConversation() {
   return (

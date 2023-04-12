@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { searchUserRequest } from "../../actions/navigation-actions";
-import useSearchInput from "../../hooks/useSearchInput";
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { searchUserRequest } from '../../actions/navigation-actions';
+import useSearchInput from '../../hooks/useSearchInput';
 
 const useNavigation = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const useNavigation = () => {
     if (searchUsers.length !== 0 && searchValue.length !== 0) {
       const searchValueLowerCase = searchValue.toLowerCase();
       const filteredUsersBySearchValue = searchUsers.filter((user) =>
-        user.username.toLowerCase().includes(searchValueLowerCase)
+        user.username.toLowerCase().includes(searchValueLowerCase),
       );
       setFilteredUsers(filteredUsersBySearchValue);
     }
@@ -37,7 +37,7 @@ const useNavigation = () => {
     if (searchValue.length === 0) {
       const suggestedUsers = chats.reduce((users, chat) => {
         const isFounded = chat.members.filter(
-          (member) => !users.map((user) => user._id).includes(member._id)
+          (member) => !users.map((user) => user._id).includes(member._id),
         );
         if (isFounded.length !== 0) return [...users, ...isFounded];
         return users;

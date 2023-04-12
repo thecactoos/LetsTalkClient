@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   setAvatarProfile,
   setBio,
@@ -7,7 +7,7 @@ import {
   updateBioRequest,
   updateUsernameRequest,
   updateAvatarRequest,
-} from "../../actions/profile-form-actions";
+} from '../../actions/profile-form-actions';
 
 const useProfileForm = () => {
   const dispatch = useDispatch();
@@ -20,9 +20,9 @@ const useProfileForm = () => {
   const [preview, setPreview] = useState(null);
 
   const handleInputChange = (e) => {
-    if (e.target.name === "username") {
+    if (e.target.name === 'username') {
       dispatch(setUsername(e.target.value));
-    } else if (e.target.name === "bio") {
+    } else if (e.target.name === 'bio') {
       dispatch(setBio(e.target.value));
     }
   };

@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Switch, Route, Redirect, useLocation } from "react-router-dom";
-import { use100vh } from "react-div-100vh";
-import { animated, useTransition } from "react-spring";
-import { useMediaQuery } from "react-responsive";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
+import { use100vh } from 'react-div-100vh';
+import { animated, useTransition } from 'react-spring';
+import { useMediaQuery } from 'react-responsive';
 
 // Routes
 import {
@@ -15,49 +15,25 @@ import {
   ROOT,
   PROFILE_USER,
   PROFILE_FORM,
-} from "../consts/routes";
+} from '../consts/routes';
 
 // Components
-import SignIn from "./SignIn/SignIn";
-import SignUp from "./SignUp/SignUp";
-import Conversation from "./Conversation/Conversation";
-import NoConversation from "./NoConversation/NoConversation";
-import NewConversation from "./NewConversation/NewConversation";
-import Profile from "./Profile/Profile";
-import ProfileForm from "./ProfileForm/ProfileForm";
-import Sidebar from "../layout/Sidebar/Sidebar";
-import Navigation from "./Navigation/Navigation";
-import SplashingScreen from "../layout/SplashingScreen/SplashingScreen";
+import SignIn from './SignIn/SignIn';
+import SignUp from './SignUp/SignUp';
+import Conversation from './Conversation/Conversation';
+import NoConversation from './NoConversation/NoConversation';
+import NewConversation from './NewConversation/NewConversation';
+import Profile from './Profile/Profile';
+import ProfileForm from './ProfileForm/ProfileForm';
+import Sidebar from '../layout/Sidebar/Sidebar';
+import Navigation from './Navigation/Navigation';
+import SplashingScreen from '../layout/SplashingScreen/SplashingScreen';
 
 // Actions
-import { loadUser } from "../actions/auth-actions";
+import { loadUser } from '../actions/auth-actions';
 
 // Styles
-import classes from "./App.module.scss";
-
-function App() {
-  const dispatch = useDispatch();
-  const isLoadingInit = useSelector((state) => state.auth.isLoadingInit);
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-
-  useEffect(() => {
-    dispatch(loadUser());
-  }, [dispatch]);
-
-  if (isLoadingInit) {
-    return <SplashingScreen />;
-  }
-
-  return (
-    <>
-      <Switch>
-        {!isAuthenticated ? <UnauthorizedRoutes /> : <AuthorizedRoutes />}
-      </Switch>
-    </>
-  );
-}
-
-export default App;
+import classes from './App.module.scss';
 
 function UnauthorizedRoutes() {
   return (
@@ -75,36 +51,36 @@ function AuthorizedRoutes() {
   const location = useLocation();
   const height = use100vh();
   const isSmallScreen = useMediaQuery({
-    query: "(max-width: 1023px)",
+    query: '(max-width: 1023px)',
   });
 
   // Transition animation
   // eslint-disable-next-line no-shadow
-  const transitions = useTransition(location, (location) => location.pathname, {
+  const transitions = useTransition(location, (item2) => item2?.pathname, {
     from: (item) => {
       if (item?.state?.fromCreateDm) {
         return {
           opacity: 1,
-          transform: "scale(1)",
-          width: "100%",
-          height: "100%",
+          transform: 'scale(1)',
+          width: '100%',
+          height: '100%',
         };
       }
       return {
         opacity: 0,
-        transform: "scale(0.9)",
-        width: "100%",
-        height: "100%",
+        transform: 'scale(0.9)',
+        width: '100%',
+        height: '100%',
       };
     },
     enter: {
       opacity: 1,
-      transform: "scale(1)",
-      width: "100%",
-      height: "100%",
+      transform: 'scale(1)',
+      width: '100%',
+      height: '100%',
     },
     leave: {
-      display: "none",
+      display: 'none',
     },
     config: {
       duration: 200,
@@ -112,7 +88,7 @@ function AuthorizedRoutes() {
   });
 
   return (
-    <div className={classes.AppWrapper} style={{ height, overflow: "hidden" }}>
+    <div className={classes.AppWrapper} style={{ height, overflow: 'hidden' }}>
       {!isSmallScreen && (
         <Sidebar>
           <Navigation />
@@ -150,3 +126,27 @@ function AuthorizedRoutes() {
     </div>
   );
 }
+
+function App() {
+  const dispatch = useDispatch();
+  const isLoadingInit = useSelector((state) => state.auth.isLoadingInit);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+  useEffect(() => {
+    dispatch(loadUser());
+  }, [dispatch]);
+
+  if (isLoadingInit) {
+    return <SplashingScreen />;
+  }
+
+  return (
+    <>
+      <Switch>
+        {!isAuthenticated ? <UnauthorizedRoutes /> : <AuthorizedRoutes />}
+      </Switch>
+    </>
+  );
+}
+
+export default App;

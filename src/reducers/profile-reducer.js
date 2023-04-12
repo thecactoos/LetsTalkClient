@@ -3,7 +3,7 @@ import {
   GET_USER_BY_ID_FAIL,
   GET_USER_BY_ID_SUCCESS,
   CLEAR_PROFILE,
-} from "../actions/profile-action-types";
+} from '../actions/profile-action-types';
 
 const initialState = {
   isLoaded: false,

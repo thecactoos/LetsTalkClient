@@ -1,24 +1,24 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 // Components
-import Input from "../../components/InputAuth/InputAuth";
-import Button from "../../components/Button/Button";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import Spinner from "../../layout/Spinner/Spinner";
+import Input from '../../components/InputAuth/InputAuth';
+import Button from '../../components/Button/Button';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import Spinner from '../../layout/Spinner/Spinner';
 
 // Custom hooks
-import useAuthInput from "../../hooks/useAuthInputs";
+import useAuthInput from '../../hooks/useAuthInputs';
 
 // Actions
-import { signIn, removeErrors } from "../../actions/auth-actions";
+import { signIn, removeErrors } from '../../actions/auth-actions';
 
 // Routes
-import { SIGN_UP } from "../../consts/routes";
+import { SIGN_UP } from '../../consts/routes';
 
 // Styles
-import classes from "../SignUp/Auth.module.scss";
+import classes from '../SignUp/Auth.module.scss';
 
 const SignIn = () => {
   const isLoadingSign = useSelector((state) => state.auth.isLoadingSign);

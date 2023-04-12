@@ -8,7 +8,7 @@ import {
   AUTH_ERROR,
   REMOVE_ERRORS,
   LOGOUT,
-} from "../actions/auth-action-types";
+} from '../actions/auth-action-types';
 
 const initialState = {
   isLoadingSign: false,
@@ -47,7 +47,7 @@ export default function authReducer(state = initialState, action) {
         isLoadingInit: false,
       };
     case AUTH_ERROR:
-      localStorage.removeItem("token");
+      localStorage.removeItem('token');
       return {
         ...state,
         isAuthenticated: false,
@@ -61,7 +61,7 @@ export default function authReducer(state = initialState, action) {
         errors: [],
       };
     case LOGOUT:
-      localStorage.removeItem("token");
+      localStorage.removeItem('token');
       return {
         ...initialState,
         isLoadingInit: false,

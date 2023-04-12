@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 // Assets
-import { ReactComponent as XIcon } from "../../../assets/x.svg";
+import { ReactComponent as XIcon } from '../../../assets/x.svg';
 
 // Styles
-import classes from "./SearchReceiverInputMobile.module.scss";
+import classes from './SearchReceiverInputMobile.module.scss';
 
 function SearchReceiverInputMobile({
   value,

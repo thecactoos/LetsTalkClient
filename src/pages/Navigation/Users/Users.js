@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 // Components
-import Spinner from "../../../layout/Spinner/Spinner";
-import User from "./User/User";
+import Spinner from '../../../layout/Spinner/Spinner';
+import User from './User/User';
 
 // Styles
-import classes from "./Users.module.scss";
+import classes from './Users.module.scss';
 
 function Users({ users, isSearching, isTyping, hideHeading }) {
   return (

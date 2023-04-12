@@ -2,7 +2,7 @@ import {
   SEARCH_USER_REQUEST,
   SEARCH_USER_SUCCESS,
   SEARCH_USER_FAIL,
-} from "../actions/navigation-action-types";
+} from '../actions/navigation-action-types';
 
 const initialState = {
   error: null,

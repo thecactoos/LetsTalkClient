@@ -15,16 +15,16 @@ import {
   SET_CHATNAME,
   SET_RECEIVER_DM,
   REMOVE_ALL_RECEIVERS,
-} from "../actions/newconversation-action-types";
+} from '../actions/newconversation-action-types';
 
 const initialState = {
-  searchString: "",
+  searchString: '',
   searchReceivers: [],
   isSearching: false,
   receivers: [],
   isCreated: false,
   isCreating: false,
-  chatName: "",
+  chatName: '',
   avatarGroup: undefined,
   messages: [],
   conversation: null,
@@ -67,7 +67,7 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         receivers: state.receivers.filter(
-          (receiver) => receiver.id !== payload
+          (receiver) => receiver.id !== payload,
         ),
       };
     case SET_RECEIVER_DM:

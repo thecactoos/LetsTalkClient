@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 
 import {
   SEND_MESSAGE_REQUEST,
@@ -7,7 +7,7 @@ import {
   GET_CONVERSATION_BY_ID_REQUEST,
   GET_CONVERSATION_BY_ID_SUCCESS,
   GET_CONVERSATION_BY_ID_FAIL,
-} from "./conversation-action-types";
+} from './conversation-action-types';
 
 export const sendMessageRequest = (messageContent, conversationId) => ({
   type: SEND_MESSAGE_REQUEST,

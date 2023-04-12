@@ -3,7 +3,7 @@ import {
   GET_USER_BY_ID_SUCCESS,
   GET_USER_BY_ID_FAIL,
   CLEAR_PROFILE,
-} from "./profile-action-types";
+} from './profile-action-types';
 
 export const getProfileRequest = (payload) => ({
   type: GET_USER_BY_ID_REQUEST,

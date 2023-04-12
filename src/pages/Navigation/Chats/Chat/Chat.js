@@ -1,14 +1,14 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 // Components
-import UserImg from "../../../../components/UserImg/UserImg";
+import UserImg from '../../../../components/UserImg/UserImg';
 
 // Routes
-import { CONVERSATION_WITHOUT_ID } from "../../../../consts/routes";
+import { CONVERSATION_WITHOUT_ID } from '../../../../consts/routes';
 
 // Style
-import classes from "./Chat.module.scss";
+import classes from './Chat.module.scss';
 
 function Chat({ chatHeading, lastMessage, id, avatar }) {
   const location = useLocation();

@@ -1,32 +1,32 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 // Assests
-import { ReactComponent as LogoutSVG } from "../../assets/logout.svg";
-import { ReactComponent as CreateNewChatIcon } from "../../assets/add-new-chat.svg";
-import { ReactComponent as LeftArrowIcon } from "../../assets/left-arrow-line.svg";
+import { ReactComponent as LogoutSVG } from '../../assets/logout.svg';
+import { ReactComponent as CreateNewChatIcon } from '../../assets/add-new-chat.svg';
+import { ReactComponent as LeftArrowIcon } from '../../assets/left-arrow-line.svg';
 
 // Components
-import Chats from "./Chats/Chats";
-import Users from "./Users/Users";
-import SearchForm from "../../components/SearchUserForm/SearchUserForm";
+import Chats from './Chats/Chats';
+import Users from './Users/Users';
+import SearchForm from '../../components/SearchUserForm/SearchUserForm';
 
 // Actions
-import { logout } from "../../actions/auth-actions";
+import { logout } from '../../actions/auth-actions';
 
 // Components
-import Spinner from "../../layout/Spinner/Spinner";
+import Spinner from '../../layout/Spinner/Spinner';
 
 // Styling
-import classes from "./Navigation.module.scss";
+import classes from './Navigation.module.scss';
 
 // Routes
-import { NEW_CONVERSATION, PROFILE_FORM } from "../../consts/routes";
-import UserImg from "../../components/UserImg/UserImg";
+import { NEW_CONVERSATION, PROFILE_FORM } from '../../consts/routes';
+import UserImg from '../../components/UserImg/UserImg';
 
 // hooks
-import useNavigation from "./useNavigation";
+import useNavigation from './useNavigation';
 
 function Navigation() {
   const dispatch = useDispatch();

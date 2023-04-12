@@ -1,20 +1,20 @@
-import { take, fork, call, put, takeEvery, race } from "redux-saga/effects";
-import { eventChannel } from "redux-saga";
-import * as actionTypes from "../actions/chats-action-types";
-import * as actions from "../actions/chats-actions";
-import * as socketTypes from "../consts/socketTypes";
+import { take, fork, call, put, takeEvery, race } from 'redux-saga/effects';
+import { eventChannel } from 'redux-saga';
+import * as actionTypes from '../actions/chats-action-types';
+import * as actions from '../actions/chats-actions';
+import * as socketTypes from '../consts/socketTypes';
 
-import createSocketConnection from "../utils/createSocketConnection";
+import createSocketConnection from '../utils/createSocketConnection';
 
 // Sagas
-import navigation from "./navigation-saga";
-import getProfileSaga from "./profile-saga";
-import getChatsSaga from "./get-chats-saga";
-import sendMessageFlow from "./send-message-saga";
-import newConversationSaga from "./new-conversation-saga";
-import getConversationSaga from "./get-conversation-saga";
-import profileFormSaga from "./profile-form-saga";
-import { LOGOUT } from "../actions/auth-action-types";
+import navigation from './navigation-saga';
+import getProfileSaga from './profile-saga';
+import getChatsSaga from './get-chats-saga';
+import sendMessageFlow from './send-message-saga';
+import newConversationSaga from './new-conversation-saga';
+import getConversationSaga from './get-conversation-saga';
+import profileFormSaga from './profile-form-saga';
+import { LOGOUT } from '../actions/auth-action-types';
 
 function createSocketChannel(socket) {
   return eventChannel((emit) => {

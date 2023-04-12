@@ -1,16 +1,16 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 // Components
-import Chat from "./Chat/Chat";
-import LoaderChats from "../../../layout/LoaderChats/LoaderChats";
+import Chat from './Chat/Chat';
+import LoaderChats from '../../../layout/LoaderChats/LoaderChats';
 
 // Helpers
-import createHeadingChatString from "../../../utils/createheadingChatString";
-import pickAvatarToDisplay from "../../../utils/pickAvatarToDisplay";
+import createHeadingChatString from '../../../utils/createheadingChatString';
+import pickAvatarToDisplay from '../../../utils/pickAvatarToDisplay';
 
 // Style
-import classes from "./Chats.module.scss";
+import classes from './Chats.module.scss';
 
 function Chats({ chats, isLoaded }) {
   const userId = useSelector((state) => state.auth.user._id);
@@ -34,7 +34,7 @@ function Chats({ chats, isLoaded }) {
                   avatar={pickAvatarToDisplay(chat, userId)}
                   lastMessage={
                     chat?.messages[chat?.messages?.length - 1]?.content ||
-                    "Group is created"
+                    'Group is created'
                   }
                 />
               );

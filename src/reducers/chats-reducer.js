@@ -7,15 +7,15 @@ import {
   GET_ALL_CHATS_FAIL,
   RECEIVE_MESSAGE,
   RECEIVE_NEW_CONVERSATION,
-} from "../actions/chats-action-types";
+} from '../actions/chats-action-types';
 import {
   CREATE_NEW_CONVERSATION_GROUP_SUCCESS,
   CREATE_NEW_CONVERSATION_REQUEST,
   CREATE_NEW_CONVERSATION_SUCCESS,
-} from "../actions/newconversation-action-types";
-import { GET_CONVERSATION_BY_ID_SUCCESS } from "../actions/conversation-action-types";
+} from '../actions/newconversation-action-types';
+import { GET_CONVERSATION_BY_ID_SUCCESS } from '../actions/conversation-action-types';
 
-import { LOGOUT } from "../actions/auth-action-types";
+import { LOGOUT } from '../actions/auth-action-types';
 
 const initialState = {
   isConnected: false,
@@ -62,18 +62,14 @@ export default (state = initialState, { type, payload }) => {
       };
     }
     case CREATE_NEW_CONVERSATION_SUCCESS: {
-      const {
-        tempConversationId,
-        tempMessageId,
-        messageId,
-        conversationId,
-      } = payload;
+      const { tempConversationId, tempMessageId, messageId, conversationId } =
+        payload;
       const updatedChats = [...state.chats];
       const chatIndex = updatedChats.findIndex(
-        (chat) => chat.tempId === tempConversationId
+        (chat) => chat.tempId === tempConversationId,
       );
       const messageIndex = updatedChats[chatIndex].messages.findIndex(
-        (message) => message.tempId === tempMessageId
+        (message) => message.tempId === tempMessageId,
       );
       updatedChats[chatIndex]._id = conversationId;
       updatedChats[chatIndex].messages[messageIndex].isSending = false;
@@ -92,7 +88,7 @@ export default (state = initialState, { type, payload }) => {
     case SEND_MESSAGE_REQUEST: {
       const { messageContent, userId, tempMessageId, conversationId } = payload;
       const chatIndex = state.chats.findIndex(
-        (chat) => chat._id === conversationId
+        (chat) => chat._id === conversationId,
       );
       const updatedChat = JSON.parse(JSON.stringify(state.chats[chatIndex]));
       const newMessage = {
@@ -115,10 +111,10 @@ export default (state = initialState, { type, payload }) => {
       const { conversationId, tempMessageId, messageId } = payload;
       const updatedChats = [...state.chats];
       const chatIndex = updatedChats.findIndex(
-        (chat) => chat._id === conversationId
+        (chat) => chat._id === conversationId,
       );
       const messageIndex = updatedChats[chatIndex].messages.findIndex(
-        (message) => message.tempId === tempMessageId
+        (message) => message.tempId === tempMessageId,
       );
 
       const updatedChat = JSON.parse(JSON.stringify(updatedChats[chatIndex]));
@@ -150,12 +146,12 @@ export default (state = initialState, { type, payload }) => {
     case RECEIVE_MESSAGE: {
       const { conversationId, newMessage } = payload;
       const conversationIndex = state.chats.findIndex(
-        (chat) => chat._id === conversationId
+        (chat) => chat._id === conversationId,
       );
 
       const newChats = [...state.chats];
       const newConversation = JSON.parse(
-        JSON.stringify(state.chats[conversationIndex])
+        JSON.stringify(state.chats[conversationIndex]),
       );
       newConversation.messages.push(newMessage);
       newConversation.lastMessageDate = newMessage.date;

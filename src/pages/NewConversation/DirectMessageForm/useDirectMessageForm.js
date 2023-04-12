@@ -1,21 +1,21 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { createSelector } from "reselect";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { createSelector } from 'reselect';
 
 // Actions
-import { sendMessageRequest } from "../../../actions/chats-actions";
+import { sendMessageRequest } from '../../../actions/chats-actions';
 import {
   removeAllReceivers,
   createNewConversation,
-} from "../../../actions/newconversation-actions";
+} from '../../../actions/newconversation-actions';
 
 // Routes
-import { CONVERSATION_WITHOUT_ID } from "../../../consts/routes";
+import { CONVERSATION_WITHOUT_ID } from '../../../consts/routes';
 
 // Utils
-import createChatHeadingString from "../../../utils/createheadingChatString";
-import pickAvatarToDisplay from "../../../utils/pickAvatarToDisplay";
+import createChatHeadingString from '../../../utils/createheadingChatString';
+import pickAvatarToDisplay from '../../../utils/pickAvatarToDisplay';
 
 // Selector which return found conversation or undefined
 const conversationExistingLocallyDMSelector = createSelector(
@@ -39,7 +39,7 @@ const conversationExistingLocallyDMSelector = createSelector(
         JSON.stringify(membersIds) === JSON.stringify(chatMembersIds)
       );
     });
-  }
+  },
 );
 
 const membersSelector = createSelector(
@@ -53,7 +53,7 @@ const membersSelector = createSelector(
       return conversation.members;
     }
     return [...receivers, user];
-  }
+  },
 );
 
 const useDirectMessageFrom = () => {
@@ -66,10 +66,10 @@ const useDirectMessageFrom = () => {
   const messages = useSelector((state) => state.newconversation.messages);
 
   const createdConversation = useSelector(
-    (state) => state.newconversation.conversation
+    (state) => state.newconversation.conversation,
   );
   const conversationExistingLocallyDM = useSelector(
-    conversationExistingLocallyDMSelector
+    conversationExistingLocallyDMSelector,
   );
 
   const createConversationHandler = (messageContent) => {
@@ -94,7 +94,7 @@ const useDirectMessageFrom = () => {
         messageContent,
         userId: user._id,
         conversationId: conversationExistingLocallyDM._id,
-      })
+      }),
     );
   };
 
@@ -104,7 +104,7 @@ const useDirectMessageFrom = () => {
       {
         members,
       },
-      user._id
+      user._id,
     ),
     members,
     avatar: pickAvatarToDisplay(
@@ -113,7 +113,7 @@ const useDirectMessageFrom = () => {
         isGroup: false,
         avatar50x50: null,
       },
-      user._id
+      user._id,
     ),
     messages: conversationExistingLocallyDM
       ? conversationExistingLocallyDM.messages

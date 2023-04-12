@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   take,
   call,
@@ -7,10 +7,10 @@ import {
   fork,
   select,
   takeEvery,
-} from "redux-saga/effects";
-import * as actions from "../actions/newconversation-actions";
-import * as actionTypes from "../actions/newconversation-action-types";
-import * as socketTypes from "../consts/socketTypes";
+} from 'redux-saga/effects';
+import * as actions from '../actions/newconversation-actions';
+import * as actionTypes from '../actions/newconversation-action-types';
+import * as socketTypes from '../consts/socketTypes';
 
 function createNewConversation(socket, payload) {
   return new Promise((res, rej) => {
@@ -20,7 +20,7 @@ function createNewConversation(socket, payload) {
       (data, error) => {
         if (error) rej(error);
         res(data);
-      }
+      },
     );
   });
 }
@@ -49,8 +49,8 @@ function* createConversation(socket) {
         actions.createNewConversationSuccess(
           conversation,
           tempConversationId,
-          tempMessageId
-        )
+          tempMessageId,
+        ),
       );
     } catch (error) {
       console.log(error);
@@ -73,7 +73,7 @@ function* searchReceiverFlow(socket) {
   yield takeLatest(
     actionTypes.SEARCH_RECEIVER_REQUEST,
     searchReceiverSaga,
-    socket
+    socket,
   );
 }
 
@@ -91,17 +91,17 @@ function* createNewConversationGroupSaga(socket, actionRequest) {
   const receiversIds = JSON.stringify(receivers.map((receiver) => receiver.id));
 
   const formData = new FormData();
-  formData.append("receivers", receiversIds);
-  formData.append("chatName", chatName);
-  formData.append("file", chatAvatarGroup);
-  formData.append("socketId", socket.id);
+  formData.append('receivers', receiversIds);
+  formData.append('chatName', chatName);
+  formData.append('file', chatAvatarGroup);
+  formData.append('socketId', socket.id);
 
   try {
     const { data: conversation } = yield call(
       axios.post,
-      "/api/conversation",
+      '/api/conversation',
       formData,
-      config
+      config,
     );
     yield put(actions.createNewGroupConversationSuccess(conversation));
   } catch (error) {
@@ -114,7 +114,7 @@ function* createNewConversationGroupFlow(socketId) {
   yield takeEvery(
     actionTypes.CREATE_NEW_CONVERSATION_GROUP_REQUEST,
     createNewConversationGroupSaga,
-    socketId
+    socketId,
   );
 }
 

@@ -1,21 +1,21 @@
-import React, { useCallback, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useCallback, useEffect } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 // import custom hook
-import useAuthInput from "../../hooks/useAuthInputs";
+import useAuthInput from '../../hooks/useAuthInputs';
 
 // import components
-import Input from "../../components/InputAuth/InputAuth";
-import Button from "../../components/Button/Button";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import Spinner from "../../layout/Spinner/Spinner";
+import Input from '../../components/InputAuth/InputAuth';
+import Button from '../../components/Button/Button';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import Spinner from '../../layout/Spinner/Spinner';
 
-import { signUp, removeErrors } from "../../actions/auth-actions";
-import { PROFILE_FORM } from "../../consts/routes";
+import { signUp, removeErrors } from '../../actions/auth-actions';
+import { PROFILE_FORM } from '../../consts/routes';
 
 // importCss
-import classes from "./Auth.module.scss";
+import classes from './Auth.module.scss';
 
 const SignUp = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -28,14 +28,14 @@ const SignUp = () => {
   const { value: valueUsername, bind: bindUsername } = useCallback(
     useAuthInput({
       required: true,
-    })
+    }),
   );
 
   const { value: valueEmail, bind: bindEmail } = useCallback(
     useAuthInput({
       required: true,
       isEmail: true,
-    })
+    }),
   );
 
   const { value: valuePassword, bind: bindPassword } = useAuthInput({
@@ -49,7 +49,7 @@ const SignUp = () => {
       isPassword: true,
       isPasswordConfirm: true,
     },
-    valuePassword
+    valuePassword,
   );
 
   // Redirect when u authenticated

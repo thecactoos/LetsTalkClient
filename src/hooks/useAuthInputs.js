@@ -1,22 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const checkValidity = (value, rules, password) => {
   let isValid = true;
   if (!rules) return isValid;
 
   if (rules.required) {
-    isValid = value.trim() !== "" && isValid;
+    isValid = value.trim() !== '' && isValid;
   }
 
   if (rules.isPassword) {
     const regexPassword = new RegExp(
-      "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})"
+      '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})',
     );
     isValid = regexPassword.test(value) && isValid;
   }
 
   if (rules.isEmail) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     isValid = re.test(value) && isValid;
   }
 
@@ -28,7 +29,7 @@ const checkValidity = (value, rules, password) => {
 };
 
 const useAuthInput = (rules, password) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const [isValid, setIsValid] = useState(false);
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const useAuthInput = (rules, password) => {
   return {
     isValid,
     value,
-    reset: () => setValue(""),
+    reset: () => setValue(''),
     bind: {
       value,
       changed: (event) => {

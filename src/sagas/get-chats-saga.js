@@ -1,6 +1,7 @@
-import { call, put } from "redux-saga/effects";
-import * as actions from "../actions/chats-actions";
-import * as socketTypes from "../consts/socketTypes";
+/* eslint-disable prettier/prettier */
+import { call, put } from 'redux-saga/effects';
+import * as actions from '../actions/chats-actions';
+import * as socketTypes from '../consts/socketTypes';
 
 function getChats(socket) {
   return new Promise((res, rej) => {
@@ -10,7 +11,7 @@ function getChats(socket) {
       (data, error) => {
         if (error) rej(error);
         res(data);
-      }
+      },
     );
   });
 }

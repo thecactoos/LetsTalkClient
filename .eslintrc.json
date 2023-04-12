@@ -1,29 +1,37 @@
 {
   "env": {
     "browser": true,
-    "es6": true
+    "es2021": true
   },
   "extends": [
+    "plugin:import/typescript",
     "plugin:react/recommended",
     "airbnb",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "airbnb-typescript"
   ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 2020,
-    "sourceType": "module"
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
     "no-underscore-dangle": "off",
+    "default-param-last": 0,
     "jsx-a11y/label-has-associated-control": [
       "error",
       {
@@ -41,10 +49,13 @@
       }
     ],
     "react/prop-types": 0,
+    "@typescript-eslint/default-param-last": 0,
     "prettier/prettier": [
       "error",
       {
-        "endOfLine": "auto"
+        "singleQuote": true,
+        "endOfLine": "auto",
+        "trailingComma": "all"
       }
     ]
   }

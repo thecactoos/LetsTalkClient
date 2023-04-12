@@ -1,7 +1,7 @@
-import { put, takeEvery, call } from "redux-saga/effects";
-import * as socketTypes from "../consts/socketTypes";
-import * as actions from "../actions/chats-actions";
-import { SEND_MESSAGE_REQUEST } from "../actions/chats-action-types";
+import { put, takeEvery, call } from 'redux-saga/effects';
+import * as socketTypes from '../consts/socketTypes';
+import * as actions from '../actions/chats-actions';
+import { SEND_MESSAGE_REQUEST } from '../actions/chats-action-types';
 
 function sendMessage(socket, payload) {
   return new Promise((res, rej) => {
@@ -24,7 +24,7 @@ function* sendMessageSaga(socket, actionRequest) {
 
     console.log(newMessage);
     yield put(
-      actions.sendMessageSuccess({ tempMessageId, conversationId, messageId })
+      actions.sendMessageSuccess({ tempMessageId, conversationId, messageId }),
     );
   } catch (error) {
     yield put(actions.sendMessageFail(error));

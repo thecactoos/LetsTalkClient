@@ -11,7 +11,7 @@ import {
   SET_PROFILE_AVATAR,
   SET_USERNAME,
   SET_BIO,
-} from "./profile-form-action-types";
+} from './profile-form-action-types';
 
 export const updateUsernameRequest = (payload) => ({
   type: UPDATE_USERNAME_REQUEST,

@@ -1,28 +1,27 @@
-import React from "react";
-import { useTransition, animated } from "react-spring";
+import React from 'react';
+import { useTransition, animated } from 'react-spring';
 
 // Components
-import Message from "./Message/Message";
+import Message from './Message/Message';
 
 // Styles
-import classes from "./Messages.module.scss";
+import classes from './Messages.module.scss';
 
 // Hooks
-import useMessages from "./useMessages";
+import useMessages from './useMessages';
 
 function Messages({ messages, members }) {
-  const { showMessages, refMessagesStart, refMessagesEnd } = useMessages(
-    messages
-  );
+  const { showMessages, refMessagesStart, refMessagesEnd } =
+    useMessages(messages);
   const transitions = useTransition(showMessages, null, {
     from: {
-      width: "100%",
-      display: "grid",
-      gridTemplateColumns: "1rem 2fr 5fr 2fr 1rem",
-      alignContent: "start",
-      listStyle: "none",
-      paddingTop: "1rem",
-      position: "relative",
+      width: '100%',
+      display: 'grid',
+      gridTemplateColumns: '1rem 2fr 5fr 2fr 1rem',
+      alignContent: 'start',
+      listStyle: 'none',
+      paddingTop: '1rem',
+      position: 'relative',
       opacity: 0,
     },
     enter: { opacity: 1 },
@@ -50,7 +49,7 @@ function Messages({ messages, members }) {
                       members.find(
                         (member) =>
                           member?._id === message.sender ||
-                          member.id === message.sender
+                          member.id === message.sender,
                       ).avatar50x50
                     }
                     key={message.tempId ? message.tempId : message._id}
@@ -62,7 +61,7 @@ function Messages({ messages, members }) {
                 &nbsp;
               </li>
             </animated.ul>
-          )
+          ),
       )}
     </div>
   );

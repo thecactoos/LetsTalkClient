@@ -1,6 +1,6 @@
-import { useEffect, useState, useRef } from "react";
-import { useSelector } from "react-redux";
-import useOnScreen from "../../hooks/useOnScreen";
+import { useEffect, useState, useRef } from 'react';
+import { useSelector } from 'react-redux';
+import useOnScreen from '../../hooks/useOnScreen';
 
 const useMessages = (messages) => {
   const refMessagesEnd = useRef(null);
@@ -16,26 +16,24 @@ const useMessages = (messages) => {
       if (isInitial) {
         refMessagesEnd.current.scrollIntoView(false);
         setIsInitial(false);
-      }
-      // Scroll smooth when user is in the end of messages
-      else if (isMessagesEndVisible) {
-        refMessagesEnd.current.scrollIntoView({ behavior: "smooth" });
-      }
-      // Scroll to last messages when logged user send message
-      else if (
+        // Scroll smooth when user is in the end of messages
+      } else if (isMessagesEndVisible) {
+        refMessagesEnd.current.scrollIntoView({ behavior: 'smooth' });
+      } else if (
         Object.prototype.hasOwnProperty.call(
           messages[messages.length - 1],
-          "tempId"
+          'tempId',
         )
+        // Scroll to last messages when logged user send message
       ) {
-        refMessagesEnd.current.scrollIntoView({ behavior: "smooth" });
+        refMessagesEnd.current.scrollIntoView({ behavior: 'smooth' });
       }
     }
   }, [messages, isLoaded, isMessagesEndVisible, isInitial, refMessagesEnd]);
 
   useEffect(() => {
     if (isMessagesStartVisible) {
-      console.log("download");
+      console.log('download');
       // TO-DO
       // GET HISTORY
     }

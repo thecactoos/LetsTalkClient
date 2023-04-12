@@ -1,6 +1,6 @@
-import { put, call, take } from "redux-saga/effects";
-import * as socketTypes from "../consts/socketTypes";
-import * as actions from "../actions/profile-actions";
+import { put, call, take } from 'redux-saga/effects';
+import * as socketTypes from '../consts/socketTypes';
+import * as actions from '../actions/profile-actions';
 
 function getProfile(socket, id) {
   return new Promise((res, rej) => {

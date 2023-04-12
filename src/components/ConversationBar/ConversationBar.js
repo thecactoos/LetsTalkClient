@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 // Components
-import UserImg from "../UserImg/UserImg";
-import BackLink from "../BackLink/BackLink";
+import UserImg from '../UserImg/UserImg';
+import BackLink from '../BackLink/BackLink';
 
 // Style
-import classes from "./ConversationBar.module.scss";
+import classes from './ConversationBar.module.scss';
 
 function ConversationBar({ headingString, avatar }) {
   return (

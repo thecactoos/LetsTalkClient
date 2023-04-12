@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 // Assets
-import { ReactComponent as ErrorIcon } from "./error.svg";
+import { ReactComponent as ErrorIcon } from './error.svg';
 
 // Styles
-import classes from "./ErrorMessage.module.scss";
+import classes from './ErrorMessage.module.scss';
 
 const ErrorMessage = ({ msg }) => {
   return (

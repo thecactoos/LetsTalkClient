@@ -1,16 +1,17 @@
-import io from "socket.io-client";
-
-const isDevelopment =
-  !process.env.NODE_ENV || process.env.NODE_ENV === "development";
+import { io } from 'socket.io-client';
 
 export default function createSocketConnection() {
-  const socket = io(`${isDevelopment ? `http://localhost:8000` : "/"}`, {
-    path: "/socket",
-    withCredentials: true,
-  });
-  return new Promise((res) => {
-    socket.on("connect", () => {
-      res(socket);
+  const socket = io(
+    process.env.REACT_APP_API_PROD_URL || 'http://localhost:8000/',
+    {
+      path: '/socket',
+      withCredentials: true,
+    },
+  );
+
+  return new Promise((resolve) => {
+    socket.on('connect', () => {
+      resolve(socket);
     });
   });
 }

@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import {
   addReceiver,
   removeReceiver,
-} from "../../actions/newconversation-actions";
-import { getProfileRequest } from "../../actions/profile-actions";
+} from '../../actions/newconversation-actions';
+import { getProfileRequest } from '../../actions/profile-actions';
 
 const useProfile = () => {
   const { userID } = useParams();
@@ -20,7 +20,7 @@ const useProfile = () => {
   }, [isConnected, dispatch, userID]);
 
   const addReceiverHandler = () => {
-    dispatch(addReceiver(profile._id, profile.username, ""));
+    dispatch(addReceiver(profile._id, profile.username, ''));
   };
   const removeReceiverHandler = () => {
     dispatch(removeReceiver(userID));

@@ -1,20 +1,20 @@
-import React from "react";
-import { Redirect } from "react-router-dom";
+import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 // Components
-import Spinner from "../../../layout/Spinner/Spinner";
-import BackLink from "../../../components/BackLink/BackLink";
+import Spinner from '../../../layout/Spinner/Spinner';
+import BackLink from '../../../components/BackLink/BackLink';
 
 // Hooks
-import useGroupInfoForm from "./useGroupInfoFrom";
-import { ReactComponent as CreateSVG } from "../../../assets/usersadded.svg";
+import useGroupInfoForm from './useGroupInfoFrom';
+import { ReactComponent as CreateSVG } from '../../../assets/usersadded.svg';
 
 // Styles
-import classes from "./GroupInfoForm.module.scss";
+import classes from './GroupInfoForm.module.scss';
 import {
   CONVERSATION_WITHOUT_ID,
   NEW_CONVERSATION_GROUP_RECEIVERS,
-} from "../../../consts/routes";
+} from '../../../consts/routes';
 
 function GroupInfoForm() {
   const {
