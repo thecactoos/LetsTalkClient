@@ -4,7 +4,7 @@ Let's talk is a real-time web application. It's a client side repository. You ca
 
 ## Live 📍
 
-[https://let-s-talk.netlify.app/](https://let-s-talk.netlify.app/)
+[https://chatark.netlify.app/signIn](https://chatark.netlify.app/signIn)
 
 ## Technologies 🔧
 
