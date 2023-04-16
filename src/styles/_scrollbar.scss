@@ -1,0 +1,19 @@
+@mixin withCustomScrollbar {
+  @media screen and (min-width: 800px) {
+    &::-webkit-scrollbar {
+      background-color: rgb(37, 37, 37);
+      width: 7px;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+      background: red;
+      fill: #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgb(94, 94, 94);
+      display: block;
+    }
+  }
+}

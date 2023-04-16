@@ -1,0 +1,22 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; //Setting 1rem = 10px
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+  width: 100%;
+  color: var(--c-font);
+  background-color: var(--c-background);
+  font-size: 1.8rem;
+}

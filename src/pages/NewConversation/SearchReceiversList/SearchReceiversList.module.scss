@@ -1,0 +1,43 @@
+@import "../../../styles/scrollbar";
+
+.SearchReceiversList {
+  height: 100%;
+  overflow-y: auto;
+  padding: 0.5rem;
+  @include withCustomScrollbar;
+}
+
+.Heading {
+  font-size: 2.1rem;
+  font-weight: 600;
+  margin-left: 0.7rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 1);
+}
+
+.Loader {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.UserNotFound {
+  font-size: 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: translateY(-10%);
+
+  &Message {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  &Icon {
+    height: 15rem;
+    margin: 10%;
+  }
+}

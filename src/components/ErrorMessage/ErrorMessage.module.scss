@@ -1,0 +1,33 @@
+@keyframes moveIn {
+  0% {
+    transform: translateY(-2.7rem);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translateY(-2.7rem);
+    opacity: 1;
+  }
+}
+
+.Box {
+  font-size: 1.6rem;
+  color: rgba(255, 85, 77, 1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 2px 3px rgba(255, 83, 74, 0.9);
+  border-radius: 100rem;
+  padding: 1rem;
+  transform: translateY(-2.7rem);
+  display: flex;
+  align-items: center;
+  animation: moveIn 0.5s ease-in-out;
+}
+
+.Icon {
+  height: 2rem;
+  fill: red;
+}
+
+.Message {
+  margin-left: 0.7rem;
+}

@@ -1,0 +1,141 @@
+@import "../../../styles/mixins";
+.Section {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas: "btn input" "form form";
+  row-gap: 1rem;
+  column-gap: 1.5rem;
+
+  @include desktop {
+    grid-template-rows: min-content;
+    grid-template-areas: "form form";
+  }
+}
+
+.BtnBack {
+  grid-area: btn;
+  padding: 1rem;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.SearchUser {
+  grid-area: input;
+  display: grid;
+  column-gap: 1.5rem;
+  grid-template-columns: 1fr min-content;
+  grid-template-rows: min-content;
+  font-size: 1.8rem;
+
+  @include desktop {
+    display: none;
+  }
+
+  &Input,
+  &Label {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+  }
+
+  &Label {
+    z-index: -100;
+  }
+
+  &Input {
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 1rem 1.5rem;
+    background: var(--c-background);
+    color: inherit;
+    border: none;
+    border-bottom: 1px solid var(--c-font);
+    outline: none;
+  }
+
+  &Clear {
+    &Btn {
+      grid-row: 1 / 2;
+      grid-column: 2 / 3;
+      width: 4rem;
+      height: 100%;
+      background: transparent;
+      border: none;
+    }
+
+    &Icon {
+      height: 40%;
+      fill: var(--c-font);
+    }
+  }
+}
+
+.Form {
+  grid-area: form;
+  overflow: hidden;
+
+  @include desktop {
+    overflow: visible;
+  }
+}
+
+.Fieldset {
+  border: none;
+  display: grid;
+  height: 100%;
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: 1fr;
+  padding: 0.5rem;
+}
+
+.Legend {
+  font-size: 2rem;
+  margin-right: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.Receivers {
+  min-height: 8vh;
+  max-height: 15vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  overflow-y: auto;
+
+  @include desktop {
+    overflow-y: visible;
+    // Change Border color to variable
+    border-bottom: 1px solid rgb(145, 144, 144);
+  }
+}
+
+.DesktopNone {
+  @include desktop {
+    display: none;
+  }
+}
+
+.BtnNext {
+  border: none;
+  width: 5rem;
+  height: 5rem;
+  position: fixed;
+  right: 5vw;
+  bottom: 5vw;
+  border-radius: 100%;
+  background-color: var(--c-bg-link);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+
+  &Svg {
+    height: 55%;
+    fill: var(--c-font);
+  }
+}
