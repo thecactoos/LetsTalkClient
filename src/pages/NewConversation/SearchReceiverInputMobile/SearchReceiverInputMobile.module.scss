@@ -1,0 +1,52 @@
+@import "../../../styles/mixins";
+
+.SearchUser {
+  grid-area: input;
+  display: grid;
+  column-gap: 1.5rem;
+  grid-template-columns: 1fr min-content;
+  grid-template-rows: min-content;
+  font-size: 1.8rem;
+
+  @include desktop {
+    display: none;
+  }
+
+  &Input,
+  &Label {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+  }
+
+  &Label {
+    z-index: -100;
+  }
+
+  &Input {
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 1rem 1.5rem;
+    background: var(--c-background);
+    color: inherit;
+    border: none;
+    border-bottom: 1px solid var(--c-font);
+    outline: none;
+  }
+
+  &Clear {
+    &Btn {
+      grid-row: 1 / 2;
+      grid-column: 2 / 3;
+      width: 4rem;
+      height: 100%;
+      background: transparent;
+      border: none;
+    }
+
+    &Icon {
+      height: 40%;
+      fill: var(--c-font);
+    }
+  }
+}

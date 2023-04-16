@@ -1,0 +1,56 @@
+.SelectType {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  grid-template-rows: repeat(3, min-content) 1fr;
+  grid-template-areas:
+    "btn heading"
+    "group group"
+    "dm dm";
+}
+
+.BarHeading {
+  grid-area: heading;
+  margin-left: 2rem;
+  font-size: 2.1rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  align-self: center;
+}
+
+.ConversationTypeLink {
+  display: flex;
+  color: var(--c-font);
+  text-decoration: none;
+  padding: 1.2rem 2rem;
+  font-size: 1.9rem;
+  align-items: center;
+
+  &IconBox {
+    height: 4.5rem;
+    width: 4.5rem;
+    background-color: rgb(50, 50, 50);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.5rem;
+    flex-shrink: 1;
+  }
+
+  &SVG {
+    width: 50%;
+    fill: var(--c-font);
+
+    &__Group {
+      width: 75%;
+    }
+  }
+}
+
+.Group {
+  grid-area: group;
+}
+
+.Dm {
+  grid-area: dm;
+}

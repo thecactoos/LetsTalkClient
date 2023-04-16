@@ -1,0 +1,17 @@
+.Section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ChooseUserSvg {
+  height: 40vh;
+}
+
+.Heading {
+  font-weight: 500;
+  font-size: 3rem;
+  letter-spacing: 1px;
+}

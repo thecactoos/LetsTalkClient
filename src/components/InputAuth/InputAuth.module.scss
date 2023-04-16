@@ -1,0 +1,46 @@
+.InputBox {
+  position: relative;
+  padding: 1rem;
+}
+
+.Label {
+  position: absolute;
+  top: 2.5rem;
+  left: 2.7rem;
+  font-size: 1.8rem;
+  transition: all 0.3s;
+  letter-spacing: 0.02em;
+}
+
+.Input {
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  width: 26rem;
+  font-size: 1.8rem;
+  background-color: var(--c-inputAuth-bg);
+  padding: 1.4rem 1.6rem;
+  color: var(--c-font);
+  box-shadow: 0px 1px 2px var(--c-inputAuth-shadow);
+  border: 1px solid var(--c-inputAuth-border);
+  border-radius: 100px;
+  outline: none;
+  margin-bottom: 1.5rem;
+
+  &:focus {
+    box-shadow: 0px 3px 3px var(--c-inputAuth-shadow-focus);
+  }
+
+  &Valid {
+    box-shadow: 0px 1px 2px var(--c-inputAuth-shadow-valid);
+
+    &:focus {
+      box-shadow: 0px 1px 2px var(--c-inputAuth-shadow-valid);
+    }
+  }
+}
+
+.Input:focus + .Label,
+.LabelActive {
+  transform: translateY(-3.7rem);
+  font-size: 1.6rem;
+}

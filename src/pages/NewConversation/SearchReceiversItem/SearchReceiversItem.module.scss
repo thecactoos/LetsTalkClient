@@ -1,0 +1,86 @@
+.Receiver {
+  display: grid;
+  grid-template-columns: min-content 1fr max-content;
+  grid-template-rows: min-content;
+  align-items: center;
+}
+
+.ViewProfile {
+  &Link {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    text-decoration: none;
+    color: var(--c-font);
+    background-color: black;
+    height: 3.6rem;
+    width: 3.6rem;
+    border-radius: 100%;
+    z-index: 100;
+    box-shadow: 0px 0px 3px rgb(187, 187, 187);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &Icon {
+    fill: var(--c-font);
+    height: 2.5rem;
+  }
+}
+
+.Label {
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content;
+  align-items: center;
+  padding: 0.7rem 0.5rem;
+  cursor: pointer;
+}
+
+.Username {
+  font-size: 1.8rem;
+  margin-left: 0.8rem;
+  font-weight: 500;
+  overflow: hidden;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.Input {
+  z-index: -1;
+}
+
+.AvatarWrapper,
+.Input,
+.TickWrapper {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  justify-self: center;
+}
+
+.Tick {
+  &Wrapper {
+    justify-self: end;
+    align-self: end;
+    height: 2rem;
+    width: 2rem;
+    bottom: 0;
+    right: 0;
+    background: rgb(103, 182, 58);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+  }
+
+  &Icon {
+    fill: var(--c-font);
+    stroke-width: 3;
+    height: 1rem;
+  }
+}

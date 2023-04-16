@@ -1,0 +1,57 @@
+.Form {
+  width: 10rem;
+  background-color: #373737;
+  border-radius: 100px;
+  margin: 0;
+  flex: 1;
+  display: flex;
+
+  // To make Label invisible but avaiable for screen readers
+  position: relative;
+}
+
+.Label {
+  color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  line-height: 0;
+}
+
+.Input {
+  font-family: inherit;
+  font-size: 1.6rem;
+  padding: 0.9rem 1.7rem;
+  background-color: var(--c-background);
+  background-color: transparent;
+  color: var(--c-font);
+  border: none;
+  border-radius: 100px;
+  outline: none;
+  width: 0;
+  flex-grow: 10;
+}
+
+.Button {
+  font-family: inherit;
+  font-size: 1.5rem;
+  color: var(--c-font);
+  background-color: transparent;
+  padding: 0 1.5rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  flex-basis: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 100px;
+  transition: all 0.3s;
+}
+
+.Icon {
+  height: 1.2rem;
+  fill: var(--c-font);
+  transition: all 0.3s;
+}

@@ -1,0 +1,136 @@
+.Section {
+  min-height: 100vh;
+  height: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr minmax(min-content, 55rem) 1fr;
+  grid-template-rows: 45vh min-content 1fr;
+  overflow-y: auto;
+}
+
+.AvatarForm {
+  height: 22rem;
+  width: 22rem;
+  border-radius: 100%;
+  grid-column: 1 / -1;
+  justify-self: center;
+  align-self: center;
+  position: relative;
+}
+
+.Avatar {
+  &Svg {
+    height: 3rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    fill: #fff;
+    margin-bottom: 1rem;
+    z-index: 200;
+  }
+
+  &ImgCur {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+  }
+
+  &Label {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    overflow: hidden;
+    z-index: 100;
+  }
+
+  &Input {
+    display: none;
+  }
+}
+
+.UsernameForm {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.BtnUpdate {
+  margin-top: 1rem;
+  align-self: center;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 100%;
+  border: none;
+
+  &__Avatar {
+    position: absolute;
+    right: 1rem;
+    bottom: 0;
+  }
+}
+
+.Username {
+  &Label {
+    font-size: 1.7rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    width: 80%;
+    align-self: center;
+  }
+
+  &Input {
+    font-family: inherit;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background-color: transparent;
+    color: var(--c-font);
+    font-size: 2.1rem;
+    padding: 0.8rem 1.5rem;
+    width: 80%;
+    align-self: center;
+  }
+}
+
+.BioForm {
+  grid-row: 3 / 4;
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  align-items: center;
+}
+
+.Bio {
+  &Label {
+    font-size: 1.7rem;
+    width: 80%;
+    padding: 0.8rem;
+  }
+
+  &TextArea {
+    width: 80%;
+    resize: vertical;
+    background-color: transparent;
+    color: inherit;
+    flex: 1;
+    font-size: 2.1rem;
+    padding: 1rem;
+    font-family: inherit;
+  }
+}
+
+.BackLinkWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.TickMarkSvg {
+  fill: var(--c-bg-link);
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,19 @@
+.ImgBox {
+  height: 3.6rem;
+  width: 3.6rem;
+  border-radius: 100%;
+  background-color: var(--c-background);
+  margin: 0 0.8rem;
+  display: flex;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.ImgBoxSmall {
+  height: 2rem;
+  width: 2rem;
+}
+
+.Img {
+  height: 100%;
+}
